@@ -12,8 +12,14 @@ On the same date, the SPSS files containing the YRBS data were transformed into 
 The README file for the repository was created on this date. 
 The README serves as a comprehensive guide to the project, providing an overview of the repository's purpose, objectives, and dataset descriptions. It also includes essential information on how to use the package, dependencies, installation instructions, and data sources.
 
-- **Documentation Development:**
-Alongside the README file, documentation related to the package was developed. This documentation provides in-depth explanations of the codebase, data cleaning procedures, feature selection methodologies, and model evaluation processes. Researchers and users will find this documentation valuable for understanding the inner workings of the project and replicating the analysis.
-
 - **License Addition:**
 To ensure proper licensing and usage guidelines, the appropriate license was added to the package on this date. This ensures clarity on how the data and code can be used, shared, and modified by others.
+
+- **Nearly Completed Cleaning YRBS 2019 Data **
+We are making remarkable strides in cleaning the YRBS 2019 data. The preprocessing and data wrangling processes are nearly finished, ensuring that the data is in optimal shape for analysis.
+
+## To do
+- Cleaning YRBS 2021 
+- Documentation
+
+
