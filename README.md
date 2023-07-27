@@ -49,8 +49,7 @@ The project is currently under [CC0 license](https://choosealicense.com/licenses
 
 **`data` Directory:** This directory contains the essential datasets used in the project.
 
--   "raw2019.rda": The raw data set for the year 2019, transformed and saved as an .rda file for easy integration and analysis in R.
--   "raw2021.rda": The raw data set for the year 2021, similarly stored as an .rda file.
+
 -   "cleaned2019.rda": The cleaned version of the 2019 data set, which will be generated after running the cleaning scripts.
 -   "cleaned2021.rda": The cleaned version of the 2021 data set, obtained after applying the data cleaning scripts.
 
@@ -65,6 +64,10 @@ The project is currently under [CC0 license](https://choosealicense.com/licenses
 - An ASCII file required for data conversion during the SPSS-to-.rda transformation.
 
 - The raw SPSS data sets downloaded from the CDC, before conversion to .rda format
+
+-   "raw2019.rda": The raw data set for the year 2019, transformed and saved as an .rda file for easy integration and analysis in R.
+
+-   "raw2021.rda": The raw data set for the year 2021, similarly stored as an .rda file.
 
  "scripts" Folder:
 
