@@ -1,10 +1,16 @@
 Package: dissertationData
-Title: What the Package Does (One Line, Title Case)
+Title: Cleaned YRBS 2019 and 2021 data for the authors dissertation
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Catalina", 
+           "Canizares", 
+           "ccani007@fiu.edu",
+           role = c("aut", "cre"),
+          comment = c(ORCID = "orcid.org/0000-0002-6854-5205"))
+Description: This private package contains cleaned datasets from the Youth Risk
+Behavior Surveillance System (YRBS) for the years 2019 and 2021. The main 
+purpose of this project is to facilitate research related to suicide 
+ideation and attempts among adolescents for the author's dissertation.
 License: CC0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
