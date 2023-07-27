@@ -2,7 +2,6 @@
 
 **Author**: Catalina Canizares.
 
-**Code Authors**: Catalina Canizares
 
 **Description**: Welcome to the dissertationData repository! This private package contains cleaned datasets from the Youth Risk Behavior Surveillance System (YRBS) for the years 2019 and 2021. The main purpose of this project is to facilitate research related to suicide ideation and attempts among adolescents for the author's dissertation.
 
@@ -44,7 +43,7 @@ The YRBS 2019 and 2021 dataset includes a wide range of topics, such as:
 
 ## License:
 
-The project is currently under [License Type]. Please refer to the LICENSE file for more details.
+The project is currently under [CC0 license](https://choosealicense.com/licenses/cc0-1.0/). Please refer to the LICENSE file for more details.
 
 ## Directories
 
