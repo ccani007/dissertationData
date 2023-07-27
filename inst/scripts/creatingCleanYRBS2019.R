@@ -35,7 +35,8 @@ clean_yrbs_2019 <-
   raw_yrbss_2019_df |>
   select(
     weight, stratum, psu, Q1, Q2, Q3, Q4,
-    Q6, Q7, Q66, raceeth, starts_with("qn")) |>
+    Q6, Q7, Q66, raceeth, starts_with("qn")
+  ) |>
   mutate(
     Sex = case_when(
       Q2 == 2 ~ "Male",
@@ -87,9 +88,11 @@ clean_yrbs_2019 <-
     )
   ) |>
   mutate(across(c(QN8:QN99), RecodeBinary)) |>
-  select(-c(Q1, Q2, Q3, Q66, raceeth, QN65, QN66 )) |>
-  select(weight, stratum, psu, Sex, Race, Age, Grade,
-         SexOrientation, everything()) |>
+  select(-c(Q1, Q2, Q3, Q66, raceeth, QN65, QN66)) |>
+  select(
+    weight, stratum, psu, Sex, Race, Age, Grade,
+    SexOrientation, everything()
+  ) |>
   rename(
     SeatBealtUse = QN8,
     DrinkingDriver = QN9,
@@ -103,7 +106,7 @@ clean_yrbs_2019 <-
     PhysicalFight = QN17,
     SchoolPhysicalFight = QN18,
     ForcedSexualIntercourse = QN19,
-    SexualViolence= QN20,
+    SexualViolence = QN20,
     SexualAbuseByPartner = QN21,
     PhysicalDaitingViolence = QN22,
     Bullying = QN23,
