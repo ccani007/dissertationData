@@ -94,6 +94,9 @@ clean_yrbs_2019 <-
     SexOrientation, everything()
   ) |>
   rename(
+    HispanicLatino = Q4,
+    Height = Q6,
+    Weight = Q7,
     SeatBealtUse = QN8,
     DrinkingDriver = QN9,
     DrivingDrinking = QN10,
