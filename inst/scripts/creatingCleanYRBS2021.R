@@ -1,16 +1,17 @@
-# Cleaning the YRBS 2019 data
+# Cleaning the YRBS 2021 data
 # Catalina Canizares
-# 07-26-2023
+# 07-28-2023
 
 
-# The following script aims to generate a clean data set for YRBS 2019 using the
+# The following script aims to generate a clean data set for YRBS 2021 using the
 ## dichotomos variables
 
 library(tidyverse)
 
-load("inst/extData/raw_yrbs_2019.rda")
+load("inst/extData/raw2021.rda")
 
-raw_yrbss <- tidyREDCap::drop_labels(raw_yrbs_2019)
+
+raw_yrbss_2021_df <- tidyREDCap::drop_labels(raw2021)
 # 13677x235
 
 ### This function is created to recode binary factors from 1 and 2 to 0 and 1.
@@ -22,22 +23,13 @@ RecodeBinary <- function(x) {
   )
 }
 
-RecodeNoYesNo <- function(x) {
-  x <- case_when(
-    x %in% c(1, 3) ~ 0,
-    x == 2 ~ 1,
-    TRUE ~ NA
-  )
-}
-
-# This function considers the not sure response as a no.
-RecodeYesNoNo <- function(x) {
-  x <- case_when(
-    x %in% c(2, 3) ~ 0,
-    x == 1 ~ 1,
-    TRUE ~ NA
-  )
-}
+# The predictors will be the Dichotomous variables from the YRBS.
+#  The dichotomous variables present the percentage of students answering the
+#  predetermined response(s) of interest (ROI). Students answering the ROI(s)
+#  are in the numerator. The denominator is either all students or a subset of
+#  students who have indicated they participate in a selected activity or behavior.
+#  Students must have provided valid data to be included in any dichotomous
+#  variable calculations.
 
 healthyBehaviors <-
   raw_yrbss |>
