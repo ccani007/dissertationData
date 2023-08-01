@@ -26,9 +26,6 @@ I did remarkable strides in cleaning the YRBS 2019 data. The preprocessing and d
 - Excluded 7 modified questions from 2019 dataset
 - Omitted 8 new questions from the 2021 questionnaire
 - Data selection subject to committee discussions
-
-
-## To do
-- Documentation
+- Documented both datasets. 
 
 
