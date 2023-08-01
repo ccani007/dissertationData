@@ -1,18 +1,16 @@
-# Cleaning the YRBS 2021 data
+# Cleaning the YRBS 2019 data
 # Catalina Canizares
-# 07-28-2023
+# 07-26-2023
 
 
-# The following script aims to generate a clean data set for YRBS 2021 using the
+# The following script aims to generate a clean data set for YRBS 2019 using the
 ## dichotomos variables
 
 library(tidyverse)
 
-load("data/raw2021.rda")
-# 17232 X 237
+load("inst/extData/raw2019.rda")
 
-
-raw_yrbss_2021_df <- tidyREDCap::drop_labels(raw2021)
+raw_yrbss_2019_df <- tidyREDCap::drop_labels(raw2019)
 # 13677x235
 
 ### This function is created to recode binary factors from 1 and 2 to 0 and 1.
@@ -32,11 +30,12 @@ RecodeBinary <- function(x) {
 #  Students must have provided valid data to be included in any dichotomous
 #  variable calculations.
 
-clean_yrbs_2021 <-
-  raw_yrbss_2021_df |>
+
+clean_yrbs_2019 <-
+  raw_yrbss_2019_df |>
   select(
     weight, stratum, psu, Q1, Q2, Q3, Q4,
-    Q6, Q7, Q65, raceeth, starts_with("qn")
+    Q6, Q7, Q66, raceeth, starts_with("qn")
   ) |>
   mutate(
     Sex = case_when(
@@ -81,15 +80,15 @@ clean_yrbs_2021 <-
   ) |>
   mutate(
     SexOrientation = case_when(
-      Q65 == 1 ~ "Heterosexual",
-      Q65 == 2 ~ "Gay or Lesbian",
-      Q65 == 3 ~ "Bisexual",
-      Q65 == 4 ~ "Not sure",
+      Q66 == 1 ~ "Heterosexual",
+      Q66 == 2 ~ "Gay or Lesbian",
+      Q66 == 3 ~ "Bisexual",
+      Q66 == 4 ~ "Not sure",
       TRUE ~ NA_character_
     )
   ) |>
   mutate(across(c(QN8:QN99), RecodeBinary)) |>
-  select(-c(Q1, Q2, Q3, Q65, raceeth)) |>
+  select(-c(Q1, Q2, Q3, Q66, raceeth, QN65, QN66)) |>
   select(
     weight, stratum, psu, Sex, Race, Age, Grade,
     SexOrientation, everything()
@@ -102,12 +101,13 @@ clean_yrbs_2021 <-
     DrinkingDriver = QN9,
     DrivingDrinking = QN10,
     TextingDriving = QN11,
-    WeaponCarryingSchool = QN12,
-    GunCarrying = QN13,
-    UnsafeAtSchool = QN14,
-    InjuredInSchool = QN15,
-    PhysicalFight = QN16,
-    SchoolPhysicalFight = QN17,
+    # WeaponCarrying = QN12, Eliminated 2021
+    WeaponCarryingSchool = QN13,
+    GunCarrying = QN14,
+    UnsafeAtSchool = QN15,
+    InjuredInSchool = QN16,
+    PhysicalFight = QN17,
+    SchoolPhysicalFight = QN18,
     ForcedSexualIntercourse = QN19,
     SexualViolence = QN20,
     SexualAbuseByPartner = QN21,
@@ -144,54 +144,50 @@ clean_yrbs_2021 <-
     EverUsedHeroin = QN52,
     EverUsedMetha = QN53,
     EverUsedEcstasy = QN54,
-    # EverUsedSteroids = QN55,
-    EverUsedInjectedIllegalDrug = QN55,
-    OfferedDrugsSchool = QN56,
-    EverHadSex = QN57,
-    SexBefore13 = QN58,
-    Sex4OrMorePartners = QN59,
-    SexuallyActive = QN60,
-    AlcoholOrDrugsSex = QN61,
-    UseCondom = QN62,
-    BirthControl = QN63,
-    VeryOverweight = QN66,
-    WeightLoss = QN67,
-    NoFruitJuice = QN68,
-    NoFruit = QN69,
-    NoSalad = QN70,
-    NoPotatoes = QN71,
-    NoCarrots = QN72,
-    NoOtherVeggies = QN73,
-    NoSoda = QN74,
-    NoMilk = QN75,
-    NoBreakfast = QN76,
-    PhysicalActivity = QN77,
-    ThreeOrMoreHoursTV = QN78,
-    # ThreeOrMoreHoursVideoGames  Eliminated, but it is aksed inside QN78
-    AttendedPEClass = QN79,
-    SportsTeam = QN80,
-    ConcussionSports = QN81,
-    HIVTested = QN82,
-    STDTested = QN83,
-    DentistVisit = QN84,
-   # HasAsthma = QN87, Eliminated
-    EightorMoreHoursSleep = QN86,
-   # MostlyAGradesInSchool = QN89, Eliminated
-    CurrentPainMedicine = QN88,
-    EverHallucinogenicDrugs = QN89,
-    NoSportsDrinks = QN90,
-    NoDrinksWater = QN91,
-    # FoodAllergy = QN94, Eliminated
-    # MuscleStrengthening = QN95, Eliminated
-    IndoorTanning = QN95,
-    # UseSunscreen = QN97, Eliminated
+    # EverUsedSteroids = QN55, Eliminated in 2021
+    EverUsedInjectedIllegalDrug = QN56,
+    OfferedDrugsSchool = QN57,
+    EverHadSex = QN58,
+    SexBefore13 = QN59,
+    Sex4OrMorePartners = QN60,
+    SexuallyActive = QN61,
+    AlcoholOrDrugsSex = QN62,
+    UseCondom = QN63,
+    BirthControl = QN64,
+    VeryOverweight = QN67,
+    WeightLoss = QN68,
+    NoFruitJuice = QN69,
+    NoFruit = QN70,
+    NoSalad = QN71,
+    NoPotatoes = QN72,
+    NoCarrots = QN73,
+    NoOtherVeggies = QN74,
+    NoSoda = QN75,
+    NoMilk = QN76,
+    NoBreakfast = QN77,
+    PhysicalActivity = QN78,
+    ThreeOrMoreHoursTV = QN79,
+    ThreeOrMoreHoursVideoGames = QN80, # Included in 2021 inside QN7
+    AttendedPEClass = QN81,
+    SportsTeam = QN82,
+    ConcussionSports = QN83,
+    HIVTested = QN84,
+    STDTested = QN85,
+    DentistVisit = QN86,
+    # HasAsthma = QN87,
+    EightorMoreHoursSleep = QN88,
+    # MostlyAGradesInSchool = QN89,
+    CurrentPainMedicine = QN90,
+    EverHallucinogenicDrugs = QN91,
+    NoSportsDrinks = QN92,
+    NoDrinksWater = QN93,
+    # FoodAllergy = QN94,
+    # MuscleStrengthening = QN95,
+    IndoorTanning = QN96,
+    # UseSunscreen = QN97,
     DifficultyConcentrating = QN98,
     EnglishProficiency = QN99
   ) |>
-  select(-starts_with("qn")) |>
-  mutate(ThreeOrMoreHoursVideoGames = ThreeOrMoreHoursTV)
-# Created this variable because in 2021 the same question asks for tv and
-# videogames, while in 2019 it was two different questions.
+  select(-starts_with("qn"))
 
-usethis::use_data(clean_yrbs_2021, overwrite = TRUE)
-# 17232 X 93
+usethis::use_data(clean_yrbs_2019, overwrite = TRUE)

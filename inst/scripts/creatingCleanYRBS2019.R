@@ -8,7 +8,7 @@
 
 library(tidyverse)
 
-load("inst/extData/raw2019.rda")
+load("data/raw2019.rda")
 
 raw_yrbss_2019_df <- tidyREDCap::drop_labels(raw2019)
 # 13677x235
@@ -101,7 +101,7 @@ clean_yrbs_2019 <-
     DrinkingDriver = QN9,
     DrivingDrinking = QN10,
     TextingDriving = QN11,
-    WeaponCarrying = QN12,
+    # WeaponCarrying = QN12, Eliminated 2021
     WeaponCarryingSchool = QN13,
     GunCarrying = QN14,
     UnsafeAtSchool = QN15,
@@ -144,7 +144,7 @@ clean_yrbs_2019 <-
     EverUsedHeroin = QN52,
     EverUsedMetha = QN53,
     EverUsedEcstasy = QN54,
-    EverUsedSteroids = QN55,
+    # EverUsedSteroids = QN55, Eliminated in 2021
     EverUsedInjectedIllegalDrug = QN56,
     OfferedDrugsSchool = QN57,
     EverHadSex = QN58,
@@ -167,26 +167,28 @@ clean_yrbs_2019 <-
     NoBreakfast = QN77,
     PhysicalActivity = QN78,
     ThreeOrMoreHoursTV = QN79,
-    ThreeOrMoreHoursVideoGames = QN80,
+    ThreeOrMoreHoursVideoGames = QN80, # Included in 2021 inside QN7
     AttendedPEClass = QN81,
     SportsTeam = QN82,
     ConcussionSports = QN83,
     HIVTested = QN84,
     STDTested = QN85,
     DentistVisit = QN86,
-    HasAsthma = QN87,
+    # HasAsthma = QN87,
     EightorMoreHoursSleep = QN88,
-    MostlyAGradesInSchool = QN89,
+    # MostlyAGradesInSchool = QN89,
     CurrentPainMedicine = QN90,
     EverHallucinogenicDrugs = QN91,
     NoSportsDrinks = QN92,
     NoDrinksWater = QN93,
-    FoodAllergy = QN94,
-    MuscleStrengthening = QN95,
+    # FoodAllergy = QN94,
+    # MuscleStrengthening = QN95,
     IndoorTanning = QN96,
-    UseSunscreen = QN97,
+    # UseSunscreen = QN97,
     DifficultyConcentrating = QN98,
     EnglishProficiency = QN99
-  )
+  ) |>
+  select(-starts_with("qn"))
 
 usethis::use_data(clean_yrbs_2019, overwrite = TRUE)
+# 13677 x 94

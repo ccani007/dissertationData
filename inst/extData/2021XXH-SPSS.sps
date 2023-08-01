@@ -1,3 +1,4 @@
+* Encoding: ISO-8859-1.
 *
 This SPSS syntax reads ASCII format (text format) 2021 YRBS data and creates a formatted 
 and labeled SPSS data file that you can analyze in SPSS;
@@ -7,7 +8,7 @@ Change the file location specifications from "c:\yrbs2021" to the location where
 stored the SPSS syntax and the YRBS ASCII data file before you run this syntax;
 Change the location specification in three places - in the "data list" statement at the top 
 of the syntax and in the "save" and "get" statements at the end of the syntax;.
-DATA LIST FILE="C:\yrbs2021\XXH2021_YRBS_Data.dat"/
+DATA LIST FILE="/Users/catalinacanizares/Github/dissertationData/inst/extData/XXH2021_YRBS_Data.dat"/
 Q1 17-17  
 Q2 18-18  Q3 19-19  Q4 20-20  
 Q5 21-28 (A) Q6 29-32  Q7 33-38  
@@ -71,7 +72,7 @@ QN87 264-264  QN88 265-265  QN89 266-266
 QN90 267-267  QN91 268-268  QN92 269-269  
 QN93 270-270  QN94 271-271  QN95 272-272  
 QN96 273-273  QN97 274-274  QN98 275-275  
-QN99 276-276  site 1-3 (A) 
+QN99 276-276  site 1-3 (A)
 qnfrcig 350-350  qndaycig 351-351  
 qnfrevp 352-352  qndayevp 353-353  qnfrskl 354-354  
 qndayskl 355-355  qnfrcgr 356-356  qndaycgr 357-357  
@@ -79,14 +80,14 @@ qntb2 358-358  qntb3 359-359  qntb4 360-360
 qntb5 361-361  qniudimp 362-362  qnothhpl 363-363  
 qndualbc 364-364  qnbcnone 365-365  qnfr0 366-366  
 qnfr1 367-367  qnfr2 368-368  qnveg0 369-369  
-qnveg1 370-370  qnveg2 371-371  qnveg3 372-372  
+qnveg1 370-370  qnveg2 371-371  qnveg3 372-372 
 qnsoda1 373-373  qnsoda2 374-374  qnmilk1 375-375  
 qnmilk3 376-376  qnbk7day 377-377  qnpa0day 378-378  
 qnpa7day 379-379  qndlype 380-380  qnnodnt 381-381  
-qnspdrk1 382-382  qnspdrk2 383-383  qnwater1 384-384  
-qnwater2 385-385  qnwater3 386-386  qnillict 387-387  
-qnobese 388-388  qnowt 389-389  weight 390-399  
-stratum 400-402  psu 403-408  bmipct 409-413  
+qnspdrk1 382-382  qnspdrk2 383-383  qnwater1 384-384
+ qnwater2 385-385  qnwater3 386-386  qnillict 387-387  
+qnobese 388-388  qnowt 389-389  weight 390-399 
+stratum 400-402  psu 403-408 bmipct 409-413
 raceeth 414-415  q6orig 416-418  q7orig 419-421.
 EXECUTE.
  
@@ -328,7 +329,9 @@ bmipct "Body Mass Index Percentile"
 raceeth "Race/Ethnicity"
 q6orig "Original unedited student height"
 q7orig "Original unedited student weight".
- 
+EXECUTE.    
+
+
 VALUE LABELS
 Q1
 1 "12 years old or younger"
@@ -1142,8 +1145,7 @@ raceeth ("  ") q6orig ("   ") q7orig ("   ") .
 
 Formats q6 q7 (F5.2) .
 EXECUTE.
-SAVE OUTFILE="C:\yrbs2021\yrbs2021.sav"/
-/COMPRESSED.
+SAVE OUTFILE="/Users/catalinacanizares/Github/dissertationData/inst/extData/XXH2021_YRBS_Data.sav".
 EXECUTE.
  
-GET FILE "C:\yrbs2021\yrbs2021.sav".
+GET FILE "/Users/catalinacanizares/Github/dissertationData/inst/extData/XXH2021_YRBS_Data.sav".

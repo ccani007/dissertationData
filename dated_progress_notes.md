@@ -15,11 +15,20 @@ The README serves as a comprehensive guide to the project, providing an overview
 - **License Addition:**
 To ensure proper licensing and usage guidelines, the appropriate license was added to the package on this date. This ensures clarity on how the data and code can be used, shared, and modified by others.
 
-- **Nearly Completed Cleaning YRBS 2019 Data **
-We are making remarkable strides in cleaning the YRBS 2019 data. The preprocessing and data wrangling processes are nearly finished, ensuring that the data is in optimal shape for analysis.
+- **Completed Cleaning YRBS 2019 Data **
+I did remarkable strides in cleaning the YRBS 2019 data. The preprocessing and data wrangling processes are nearly finished, ensuring that the data is in optimal shape for analysis.
+
+## Date: 07/31/2023
+
+
+- Significant strides made in cleaning 2021 YRBS data
+- Identified modifications in questions between 2019 and 2021 surveys
+- Excluded 7 modified questions from 2019 dataset
+- Omitted 8 new questions from the 2021 questionnaire
+- Data selection subject to committee discussions
+
 
 ## To do
-- Cleaning YRBS 2021 
 - Documentation
 
 
