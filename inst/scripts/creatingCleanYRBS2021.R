@@ -189,7 +189,8 @@ clean_yrbs_2021 <-
     EnglishProficiency = QN99
   ) |>
   select(-starts_with("qn")) |>
-  mutate(ThreeOrMoreHoursVideoGames = ThreeOrMoreHoursTV)
+  mutate(ThreeOrMoreHoursVideoGames = ThreeOrMoreHoursTV) |>
+  mutate(across(c(HispanicLatino, SeatBealtUse:EnglishProficiency), factor))
 # Created this variable because in 2021 the same question asks for tv and
 # videogames, while in 2019 it was two different questions.
 

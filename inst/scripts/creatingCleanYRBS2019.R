@@ -87,7 +87,7 @@ clean_yrbs_2019 <-
       TRUE ~ NA_character_
     )
   ) |>
-  mutate(across(c(QN8:QN99), RecodeBinary)) |>
+  mutate(across(c(Q4, QN8:QN99), RecodeBinary)) |>
   select(-c(Q1, Q2, Q3, Q66, raceeth, QN65, QN66)) |>
   select(
     weight, stratum, psu, Sex, Race, Age, Grade,
@@ -188,7 +188,8 @@ clean_yrbs_2019 <-
     DifficultyConcentrating = QN98,
     EnglishProficiency = QN99
   ) |>
-  select(-starts_with("qn"))
+  select(-starts_with("qn")) |>
+  mutate(across(c(HispanicLatino, SeatBealtUse:EnglishProficiency), factor))
 
 usethis::use_data(clean_yrbs_2019, overwrite = TRUE)
 # 13677 x 94
