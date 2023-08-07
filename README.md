@@ -21,6 +21,12 @@ remotes::install_cran(
 # remotes::install_github()
 ```
 
+## Installing my Package
+```r
+library(devtools)
+install_github("ccani007/dissertationData")
+```
+
 ## Raw Data
 
 The `raw2019.rds` file contains the raw data from the Youth Risk Behavior Surveillance System (YRBS) for the year 2019.
