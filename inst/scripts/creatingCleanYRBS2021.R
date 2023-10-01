@@ -116,7 +116,7 @@ clean_yrbs_2021 <-
     CyberBullying = QN24,
     Hopelessness = QN25,
     SuicideIdeation = QN26,
-    SuidicePlan = QN27,
+    SuicidePlan = QN27,
     SuicideAttempts = QN28,
     SuicideInjuryMedicalAttention = QN29,
     EverTriedCigarrette = QN30,
