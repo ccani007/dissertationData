@@ -174,12 +174,12 @@ clean_yrbs_2019 <-
     SportsTeam = QN82,
     ConcussionSports = QN83,
     HIVTested = QN84,
-    STDTested = QN85,
+    # STDTested = QN85, not asked 2017
     DentistVisit = QN86,
     # HasAsthma = QN87,
     EightorMoreHoursSleep = QN88,
     # MostlyAGradesInSchool = QN89,
-    CurrentPainMedicine = QN90,
+    # CurrentPainMedicine = QN90, not asked in 2017
     EverHallucinogenicDrugs = QN91,
     NoSportsDrinks = QN92,
     NoDrinksWater = QN93,
