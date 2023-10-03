@@ -35,7 +35,7 @@ clean_yrbs_2017 <-
   raw_yrbss_2017_df |>
   select(
     weight, stratum, psu, Q1, Q2, Q3, Q4,
-    Q6, Q7, Q66, raceeth, starts_with("qn")
+    Q6, Q7, Q67, raceeth, starts_with("qn")
   ) |>
   mutate(
     Sex = case_when(
@@ -78,17 +78,18 @@ clean_yrbs_2017 <-
       TRUE ~ NA_character_
     )
   ) |>
+  # Item number changed, in 2019 and 2021 SexOrientation is Q66
   mutate(
     SexOrientation = case_when(
-      Q66 == 1 ~ "Heterosexual",
-      Q66 == 2 ~ "Gay or Lesbian",
-      Q66 == 3 ~ "Bisexual",
-      Q66 == 4 ~ "Not sure",
+      Q67 == 1 ~ "Heterosexual",
+      Q67 == 2 ~ "Gay or Lesbian",
+      Q67 == 3 ~ "Bisexual",
+      Q67 == 4 ~ "Not sure",
       TRUE ~ NA_character_
     )
   ) |>
   mutate(across(c(Q4, QN8:QN99), RecodeBinary)) |>
-  select(-c(Q1, Q2, Q3, Q66, raceeth, QN65, QN66)) |>
+  select(-c(Q1, Q2, Q3, Q67, raceeth)) |>
   select(
     weight, stratum, psu, Sex, Race, Age, Grade,
     SexOrientation, everything()
@@ -129,62 +130,64 @@ clean_yrbs_2017 <-
     CurrentlySmokelessTobacco = QN37,
     CurrentlySmokingCigar = QN38,
     QuitTobbaco = QN39,
-    FirstAlcoholBefore13 = QN40,
-    CurrentlyAlcohol = QN41,
-    CurrentlyBingeDrinking = QN42,
-    MoreThan10Drinks = QN43,
-    SomeoneSourceAlcohol = QN44,
-    EverUsedMarihuana = QN45,
-    FirstMarihuanaBefore13 = QN46,
-    CurrentlyUseMarihuana = QN47,
-    EverUsedSyntheticMarihuana = QN48,
-    PainMedicine = QN49,
-    EverUsedCocaine = QN50,
-    EverUsedInhalant = QN51,
-    EverUsedHeroin = QN52,
-    EverUsedMetha = QN53,
-    EverUsedEcstasy = QN54,
+    # EverAlcoholUse = QN40, not asked in 2019 and 2021
+    FirstAlcoholBefore13 = QN41,
+    CurrentlyAlcohol = QN42,
+    CurrentlyBingeDrinking = QN44,
+    MoreThan10Drinks = QN45,
+    SomeoneSourceAlcohol = QN43,
+    EverUsedMarihuana = QN46,
+    FirstMarihuanaBefore13 = QN47,
+    CurrentlyUseMarihuana = QN48,
+    EverUsedSyntheticMarihuana = QN54, #QN48 in 2019 and 2021
+    PainMedicine = QN56,
+    EverUsedCocaine = QN49,
+    EverUsedInhalant = QN50,
+    EverUsedHeroin = QN51,
+    EverUsedMetha = QN52,
+    EverUsedEcstasy = QN53,
     # EverUsedSteroids = QN55, Eliminated in 2021
-    EverUsedInjectedIllegalDrug = QN56,
-    OfferedDrugsSchool = QN57,
-    EverHadSex = QN58,
-    SexBefore13 = QN59,
-    Sex4OrMorePartners = QN60,
-    SexuallyActive = QN61,
-    AlcoholOrDrugsSex = QN62,
-    UseCondom = QN63,
-    BirthControl = QN64,
-    VeryOverweight = QN67,
-    WeightLoss = QN68,
-    NoFruitJuice = QN69,
-    NoFruit = QN70,
-    NoSalad = QN71,
-    NoPotatoes = QN72,
-    NoCarrots = QN73,
-    NoOtherVeggies = QN74,
-    NoSoda = QN75,
-    NoMilk = QN76,
-    NoBreakfast = QN77,
-    PhysicalActivity = QN78,
-    ThreeOrMoreHoursTV = QN79,
-    ThreeOrMoreHoursVideoGames = QN80, # Included in 2021 inside QN7
-    AttendedPEClass = QN81,
-    SportsTeam = QN82,
-    ConcussionSports = QN83,
-    HIVTested = QN84,
-    STDTested = QN85,
+    EverUsedInjectedIllegalDrug = QN57,
+    OfferedDrugsSchool = QN58,
+    EverHadSex = QN59,
+    SexBefore13 = QN60,
+    Sex4OrMorePartners = QN61,
+    SexuallyActive = QN62,
+    AlcoholOrDrugsSex = QN63,
+    UseCondom = QN64,
+    BirthControl = QN65,
+    # SexofSexualContact = Q66,
+    VeryOverweight = QN68,
+    WeightLoss = QN69,
+    NoFruitJuice = QN70,
+    NoFruit = QN71,
+    NoSalad = QN72,
+    NoPotatoes = QN73,
+    NoCarrots = QN74,
+    NoOtherVeggies = QN75,
+    NoSoda = QN76,
+    NoMilk = QN77,
+    NoBreakfast = QN78,
+    PhysicalActivity = QN79,
+    ThreeOrMoreHoursTV = QN80,
+    ThreeOrMoreHoursVideoGames = QN81, # Included in 2021 inside QN79
+    AttendedPEClass = QN82,
+    SportsTeam = QN83,
+    ConcussionSports = QN84,
+    HIVTested = QN85,
+    # STDTested = QN85, Not asked in 2017
     DentistVisit = QN86,
     # HasAsthma = QN87,
     EightorMoreHoursSleep = QN88,
     # MostlyAGradesInSchool = QN89,
-    CurrentPainMedicine = QN90,
+    # DriveUsingMarijuana = QN90, in 2019 and 2021 the question is about pain killers
     EverHallucinogenicDrugs = QN91,
     NoSportsDrinks = QN92,
     NoDrinksWater = QN93,
     # FoodAllergy = QN94,
     # MuscleStrengthening = QN95,
     IndoorTanning = QN96,
-    # UseSunscreen = QN97,
+    # SunBurn = QN97, not used in 2019 it asked for sunscreen use
     DifficultyConcentrating = QN98,
     EnglishProficiency = QN99
   ) |>

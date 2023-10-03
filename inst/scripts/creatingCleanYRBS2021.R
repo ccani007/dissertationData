@@ -172,12 +172,12 @@ clean_yrbs_2021 <-
     SportsTeam = QN80,
     ConcussionSports = QN81,
     HIVTested = QN82,
-    STDTested = QN83,
+    # STDTested = QN83, not asked in 2017
     DentistVisit = QN84,
    # HasAsthma = QN87, Eliminated
     EightorMoreHoursSleep = QN86,
    # MostlyAGradesInSchool = QN89, Eliminated
-    CurrentPainMedicine = QN88,
+    # CurrentPainMedicine = QN88,had to eliminate it because not asked in 2017
     EverHallucinogenicDrugs = QN89,
     NoSportsDrinks = QN90,
     NoDrinksWater = QN91,
