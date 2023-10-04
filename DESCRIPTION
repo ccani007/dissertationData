@@ -1,6 +1,6 @@
 Package: dissertationData
 Title: Cleaned YRBS 2019 and 2021 data for the authors dissertation
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
       person(
         given  = "Catalina",
