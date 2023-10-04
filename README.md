@@ -5,7 +5,7 @@
 **Author**: Catalina Canizares.
 
 
-**Description**: Welcome to the dissertationData repository! This package contains cleaned datasets from the Youth Risk Behavior Surveillance System (YRBS) for the years 2019 and 2021. The main purpose of this project is to facilitate research related to suicide ideation and attempts among adolescents for the author's dissertation.
+**Description**: Welcome to the dissertationData repository! This package contains cleaned datasets from the Youth Risk Behavior Surveillance System (YRBS) for the years 2017, 2019 and 2021. The main purpose of this project is to facilitate research related to suicide ideation and attempts among adolescents for the author's dissertation.
 
 **Notes**: The progress notes are here [DATED_PROGRESS_NOTES.md](dated_progress_notes.md).
 
@@ -29,13 +29,15 @@ install_github("ccani007/dissertationData")
 
 ## Raw Data
 
+The `raw2017.rds` file contains the raw data from the Youth Risk Behavior Surveillance System (YRBS) for the year 2017.
+
 The `raw2019.rds` file contains the raw data from the Youth Risk Behavior Surveillance System (YRBS) for the year 2019.
 
 The `raw2021.rds` file contains the raw data from the Youth Risk Behavior Surveillance System (YRBS) for the year 2021.
 
 YRBS is a biennial survey conducted by the Centers for Disease Control and Prevention (CDC) to monitor health-risk behaviors among youth in the United States. The dataset provides valuable information on various behaviors that contribute to the leading causes of death and disability among adolescents.
 
-The YRBS 2019 and 2021 dataset includes a wide range of topics, such as:
+The YRBS 2017, 2019 and 2021 dataset includes a wide range of topics, such as:
 
 -   Behavioral Risk Factors: Information related to health-risk behaviors, including but not limited to tobacco use, alcohol and drug use, sexual activity, unhealthy dietary habits, and lack of physical activity.
 
@@ -58,9 +60,14 @@ The project is currently under [CC0 license](https://choosealicense.com/licenses
 **`data` Directory:** This directory contains the essential datasets used in the project.
 
 
--   "cleaned2019.rda": The cleaned version of the 2019 data set, which will be generated after running the cleaning scripts.
--   "cleaned2021.rda": The cleaned version of the 2021 data set, obtained after applying the data cleaning scripts.
-
+-   "clean_yrbs_2017.rda": The cleaned version of the 2017 data set, obtained after applying the data cleaning scripts
+-   "clean_yrbs_2019.rda": The cleaned version of the 2019 data set, obtained after applying the data cleaning scripts.
+-   "clean_yrbs_2021.rda": The cleaned version of the 2021 data set, obtained after applying the data cleaning scripts.
+-   "combinedYRBS.rds" The consolidated dataset, merging data from 2017, 2019, and 2021 while retaining only the variables that are common across all three datasets.
+-  "raw2017.rda" The unaltered dataset obtained directly from the CDC, without any preprocessing or modifications.
+-   "raw2019.rda" The unaltered dataset obtained directly from the CDC, without any preprocessing or modifications.
+-   "raw2021.rda" The unaltered dataset obtained directly from the CDC, without any preprocessing or modifications.
+  
 **`inst` Directory:**
 
 "extData" Folder:
@@ -73,10 +80,6 @@ The project is currently under [CC0 license](https://choosealicense.com/licenses
 
 - The raw SPSS data sets downloaded from the CDC, before conversion to .rda format
 
--   "raw2019.rda": The raw data set for the year 2019, transformed and saved as an .rda file for easy integration and analysis in R.
-
--   "raw2021.rda": The raw data set for the year 2021, similarly stored as an .rda file.
-
  "scripts" Folder:
 
 -  This folder holds the scripts utilized throughout the data cleaning and .rda file creation process.
@@ -85,8 +88,8 @@ The project is currently under [CC0 license](https://choosealicense.com/licenses
 
 Run these file in order from raw processing to publication.
 
-1.inst/extData/2019XXH-SPSS.sps and 2021XXH-SPSS.sps
+1.inst/extData/2017XXH_SPSS.sps, 2019XXH-SPSS.sps, 2021XXH-SPSS.sps
 
 2.inst/extData/creatingRDA_data.R
 
-3.inst/extData/creatingCleanYRBS2019.R and creatingCleanYRBS2021.R
+3.inst/extData/creatingCleanYRBS2019.R, creatingCleanYRBS2019.R, creating CleanYRBS2021.R, and creatingCombinedYRBS.R
