@@ -1,5 +1,5 @@
 Package: dissertationData
-Title: Cleaned YRBS 2019 and 2021 data for the authors dissertation
+Title: Cleaned and combined YRBS 2017, 2019 and 2021 data 
 Version: 1.0.0
 Authors@R: 
       person(
