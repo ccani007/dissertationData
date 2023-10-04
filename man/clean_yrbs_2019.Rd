@@ -5,12 +5,17 @@
 \alias{clean_yrbs_2019}
 \title{clean_yrbs_2019}
 \format{
-A tibble with 13,677 and 94 variables
+A tibble with 13,677 and 102 variables
 \describe{
-This data set only includes the questions from the Appendix A of the
-YRBS 2019 only including the QN dichotomous variables.
-please consult the documentation in the 2019 National YRBS
-Data Users Guide for details.
+This dataset exclusively comprises questions sourced from Appendix A of the
+YRBS 2019, specifically focusing on the QN dichotomous variables.
+For comprehensive information, please refer to the documentation
+provided in the 2019 National YRBS Data Users Guide. In this dataset,
+each variable follows a binary pattern: a value of 1 indicates the
+presence of the specified behavior, while a value of 0 signifies its
+absence. For instance, with regard to Suicide Attempts, a value of 1
+signifies that adolescents responded affirmatively to having made
+suicide attempts, whereas 0 indicates a negative response.
 }
 }
 \usage{

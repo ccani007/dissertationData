@@ -6,7 +6,7 @@
 library(haven)
 
 
-raw2017 <- read_sav("inst/extData/yrbs2017.dat.sav")
+raw2017 <- read_sav("inst/extData/yrbs2017.sav")
 
 usethis::use_data(raw2017, overwrite = TRUE)
 

@@ -1,3 +1,4 @@
+* Encoding: UTF-8.
 *
 This SPSS syntax reads ASCII format (text format) 2017 YRBS data and creates a formatted 
 and labeled SPSS data file that you can analyze in SPSS;
@@ -7,7 +8,7 @@ Change the file location specifications from "c:\yrbs2017" to the location where
 stored the SPSS syntax and the YRBS ASCII data file before you run this syntax;
 Change the location specification in three places - in the "data list" statement at the top 
 of the syntax and in the "save" and "get" statements at the end of the syntax;.
-DATA LIST FILE="C:\yrbs2017\yrbs2017.dat"/
+DATA LIST FILE="/Users/catalinacanizares/Github/dissertationData/inst/extData/XXH2017_YRBS_Data.dat"/
 Q1 17-17  
 Q2 18-18  Q3 19-19  Q4 20-20  
 Q5 21-28 (A) Q6 29-32  Q7 33-38  
@@ -1148,16 +1149,17 @@ qnmilk3 (" ") qnbk7day (" ") qnpa0day (" ")
 qnpa7day (" ") qndlype (" ") qnnodnt (" ") 
 qnspdrk1 (" ") qnspdrk2 (" ") qnspdrk3 (" ") 
 qnwater1 (" ") qnwater2 (" ") qnwater3 (" ") 
-qnobese (" ") qnowt (" ") weight ("          ") 
+qnobese (" ") qnowt (" ") weight (" ") 
 stratum ("   ") psu ("      ") bmipct ("     ") 
 raceeth ("  ") q6orig ("   ") q7orig ("   ") 
 qndayevp (" ") qnfrevp (" ") qndayskl (" ") 
 qnfrskl (" ") qndaycgr (" ") qnfrcgr (" ") .
 
 Formats q6 q7 (F5.2) .
+
 EXECUTE.
-SAVE OUTFILE="C:\yrbs2017\yrbs2017.sav"/
+SAVE OUTFILE="/Users/catalinacanizares/Github/dissertationData/inst/extData/yrbs2017.sav"/
 /COMPRESSED.
 EXECUTE.
  
-GET FILE "C:\yrbs2017\yrbs2017.sav".
+GET FILE "/Users/catalinacanizares/Github/dissertationData/inst/extData/yrbs2017.sav".

@@ -4,7 +4,10 @@
 
 
 # The following script aims to generate a clean data set for YRBS 2021 using the
-## dichotomos variables
+# dichotomos variables. This dataset will contain ALL of the variables and are
+# in line with the data dictonary, which is different from the clean_yrbs
+# created in the script creatingCleanYRBS2021.R.
+
 
 library(tidyverse)
 
@@ -36,7 +39,7 @@ clean_yrbs_2021 <-
   raw_yrbss_2021_df |>
   select(
     weight, stratum, psu, Q1, Q2, Q3, Q4,
-    Q6, Q7, Q65, raceeth, starts_with("qn")
+    Q6, Q7, Q64, Q65, raceeth, starts_with("qn")
   ) |>
   mutate(
     Sex = case_when(
@@ -108,6 +111,7 @@ clean_yrbs_2021 <-
     InjuredInSchool = QN15,
     PhysicalFight = QN16,
     SchoolPhysicalFight = QN17,
+    AttackedInNeighborhood = QN18,
     ForcedSexualIntercourse = QN19,
     SexualViolence = QN20,
     SexualAbuseByPartner = QN21,
@@ -144,7 +148,6 @@ clean_yrbs_2021 <-
     EverUsedHeroin = QN52,
     EverUsedMetha = QN53,
     EverUsedEcstasy = QN54,
-    # EverUsedSteroids = QN55,
     EverUsedInjectedIllegalDrug = QN55,
     OfferedDrugsSchool = QN56,
     EverHadSex = QN57,
@@ -154,6 +157,8 @@ clean_yrbs_2021 <-
     AlcoholOrDrugsSex = QN61,
     UseCondom = QN62,
     BirthControl = QN63,
+    SexofSexualContact = Q64,
+    # Q 65 Sexual orientation
     VeryOverweight = QN66,
     WeightLoss = QN67,
     NoFruitJuice = QN68,
@@ -167,32 +172,31 @@ clean_yrbs_2021 <-
     NoBreakfast = QN76,
     PhysicalActivity = QN77,
     ThreeOrMoreHoursTV = QN78,
-    # ThreeOrMoreHoursVideoGames  Eliminated, but it is aksed inside QN78
     AttendedPEClass = QN79,
     SportsTeam = QN80,
     ConcussionSports = QN81,
     HIVTested = QN82,
-    # STDTested = QN83, not asked in 2017
+    STDTested = QN83,
     DentistVisit = QN84,
-   # HasAsthma = QN87, Eliminated
+    NotGoodMentalHealth = QN85,
     EightorMoreHoursSleep = QN86,
-   # MostlyAGradesInSchool = QN89, Eliminated
-    # CurrentPainMedicine = QN88,had to eliminate it because not asked in 2017
+    Homelessness = QN87,
+    CurrentPainMedicine = QN88,
     EverHallucinogenicDrugs = QN89,
     NoSportsDrinks = QN90,
     NoDrinksWater = QN91,
-    # FoodAllergy = QN94, Eliminated
-    # MuscleStrengthening = QN95, Eliminated
-    IndoorTanning = QN95,
-    # UseSunscreen = QN97, Eliminated
+    ExcerciseMuscles = QN92,
+    CovidNotGoodMentalHealth = QN93,
+    CovidAdultLostJob = QN94,
+    Sunburn = QN95,
+    FeelCloseToPeople = QN96,
+    ParentalMonitoring = QN97,
     DifficultyConcentrating = QN98,
     EnglishProficiency = QN99
   ) |>
   select(-starts_with("qn")) |>
-  mutate(ThreeOrMoreHoursVideoGames = ThreeOrMoreHoursTV) |>
   mutate(across(c(HispanicLatino, SeatBealtUse:EnglishProficiency), factor))
-# Created this variable because in 2021 the same question asks for tv and
-# videogames, while in 2019 it was two different questions.
+
 
 usethis::use_data(clean_yrbs_2021, overwrite = TRUE)
-# 17232 X 93
+# 17232 X 102

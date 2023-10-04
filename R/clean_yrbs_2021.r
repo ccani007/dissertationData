@@ -22,12 +22,17 @@
 #' \item{Inadequate physical activity}
 #' }
 #'
-#'@format A tibble with 17,232 and 94 variables
+#'@format A tibble with 17,232 and 102 variables
 #'\describe{
-#'  This data set only includes the questions from the Appendix A of the
-#'  YRBS 2021 only including the QN dichotomous variables.
-#'  please consult the documentation in the 2019 National YRBS
-#'  Data Users Guide for details.
+#'  This dataset exclusively comprises questions sourced from Appendix A of the
+#'   YRBS 2021, specifically focusing on the QN dichotomous variables.
+#'   For comprehensive information, please refer to the documentation
+#'   provided in the 2021 National YRBS Data Users Guide. In this dataset,
+#'   each variable follows a binary pattern: a value of 1 indicates the
+#'   presence of the specified behavior, while a value of 0 signifies its
+#'   absence. For instance, with regard to Suicide Attempts, a value of 1
+#'   signifies that adolescents responded affirmatively to having made
+#'   suicide attempts, whereas 0 indicates a negative response.
 #'  }
 #'
 #'

@@ -1,7 +1,7 @@
 # Cleaning the YRBS 2019 data
 # Catalina Canizares
 # 07-26-2023
-# checked variables agianst manual 10/03/2023
+# Double-Checked variables and manual 10/03/2023
 
 
 # The following script aims to generate a clean data set for YRBS 2019 using the
@@ -36,7 +36,7 @@ clean_yrbs_2019 <-
   raw_yrbss_2019_df |>
   select(
     weight, stratum, psu, Q1, Q2, Q3, Q4,
-    Q6, Q7, Q66, raceeth, starts_with("qn")
+    Q6, Q7, Q65, Q66, raceeth, starts_with("qn")
   ) |>
   mutate(
     Sex = case_when(
@@ -102,11 +102,11 @@ clean_yrbs_2019 <-
     DrinkingDriver = QN9,
     DrivingDrinking = QN10,
     TextingDriving = QN11,
-    # WeaponCarrying = QN12, Eliminated 2021
+    WeaponCarrying = QN12,
     WeaponCarryingSchool = QN13,
     GunCarrying = QN14,
     UnsafeAtSchool = QN15,
-    InjuredInSchool = QN16,
+    ThreatenedInSchool = QN16,
     PhysicalFight = QN17,
     SchoolPhysicalFight = QN18,
     ForcedSexualIntercourse = QN19,
@@ -145,7 +145,7 @@ clean_yrbs_2019 <-
     EverUsedHeroin = QN52,
     EverUsedMetha = QN53,
     EverUsedEcstasy = QN54,
-    # EverUsedSteroids = QN55, Eliminated in 2021
+    EverUsedSteroids = QN55,
     EverUsedInjectedIllegalDrug = QN56,
     OfferedDrugsSchool = QN57,
     EverHadSex = QN58,
@@ -155,7 +155,8 @@ clean_yrbs_2019 <-
     AlcoholOrDrugsSex = QN62,
     UseCondom = QN63,
     BirthControl = QN64,
-    #SexofSexualContact = Q65,
+    SexofSexualContact = Q65,
+    # Q55 Sexual orientation
     VeryOverweight = QN67,
     WeightLoss = QN68,
     NoFruitJuice = QN69,
@@ -169,24 +170,24 @@ clean_yrbs_2019 <-
     NoBreakfast = QN77,
     PhysicalActivity = QN78,
     ThreeOrMoreHoursTV = QN79,
-    ThreeOrMoreHoursVideoGames = QN80, # Included in 2021 inside QN7
+    ThreeOrMoreHoursVideoGames = QN80, # Included in 2021 inside QN79
     AttendedPEClass = QN81,
     SportsTeam = QN82,
     ConcussionSports = QN83,
     HIVTested = QN84,
-    # STDTested = QN85, not asked 2017
+    STDTested = QN85,
     DentistVisit = QN86,
-    # HasAsthma = QN87,
+    HasAsthma = QN87,
     EightorMoreHoursSleep = QN88,
-    # MostlyAGradesInSchool = QN89,
-    # CurrentPainMedicine = QN90, not asked in 2017
+    MostlyAGradesInSchool = QN89,
+    CurrentPainMedicine = QN90,
     EverHallucinogenicDrugs = QN91,
     NoSportsDrinks = QN92,
     NoDrinksWater = QN93,
-    # FoodAllergy = QN94,
-    # MuscleStrengthening = QN95,
+    FoodAllergy = QN94,
+    MuscleStrengthening = QN95,
     IndoorTanning = QN96,
-    # UseSunscreen = QN97,
+    UseSunscreen = QN97,
     DifficultyConcentrating = QN98,
     EnglishProficiency = QN99
   ) |>

@@ -3,7 +3,7 @@
 # 10-01-2023
 
 
-# The following script aims to generate a clean data set for YRBS 2019 using the
+# The following script aims to generate a clean data set for YRBS 2017 using the
 ## dichotomos variables
 
 library(tidyverse)
@@ -35,7 +35,7 @@ clean_yrbs_2017 <-
   raw_yrbss_2017_df |>
   select(
     weight, stratum, psu, Q1, Q2, Q3, Q4,
-    Q6, Q7, Q67, raceeth, starts_with("qn")
+    Q6, Q7, Q66, Q67, raceeth, starts_with("qn")
   ) |>
   mutate(
     Sex = case_when(
@@ -102,11 +102,11 @@ clean_yrbs_2017 <-
     DrinkingDriver = QN9,
     DrivingDrinking = QN10,
     TextingDriving = QN11,
-    # WeaponCarrying = QN12, Eliminated 2021
+    WeaponCarrying = QN12,
     WeaponCarryingSchool = QN13,
     GunCarrying = QN14,
     UnsafeAtSchool = QN15,
-    InjuredInSchool = QN16,
+    ThreatenedInSchool = QN16,
     PhysicalFight = QN17,
     SchoolPhysicalFight = QN18,
     ForcedSexualIntercourse = QN19,
@@ -130,23 +130,23 @@ clean_yrbs_2017 <-
     CurrentlySmokelessTobacco = QN37,
     CurrentlySmokingCigar = QN38,
     QuitTobbaco = QN39,
-    # EverAlcoholUse = QN40, not asked in 2019 and 2021
+    EverAlcoholUse = QN40,
     FirstAlcoholBefore13 = QN41,
     CurrentlyAlcohol = QN42,
+    SomeoneSourceAlcohol = QN43,
     CurrentlyBingeDrinking = QN44,
     MoreThan10Drinks = QN45,
-    SomeoneSourceAlcohol = QN43,
     EverUsedMarihuana = QN46,
     FirstMarihuanaBefore13 = QN47,
     CurrentlyUseMarihuana = QN48,
-    EverUsedSyntheticMarihuana = QN54, #QN48 in 2019 and 2021
-    PainMedicine = QN56,
     EverUsedCocaine = QN49,
     EverUsedInhalant = QN50,
     EverUsedHeroin = QN51,
     EverUsedMetha = QN52,
     EverUsedEcstasy = QN53,
-    # EverUsedSteroids = QN55, Eliminated in 2021
+    EverUsedSyntheticMarihuana = QN54, #QN48 in 2019 and 2021
+    EverUsedSteroids = QN55,
+    PainMedicine = QN56,
     EverUsedInjectedIllegalDrug = QN57,
     OfferedDrugsSchool = QN58,
     EverHadSex = QN59,
@@ -156,7 +156,8 @@ clean_yrbs_2017 <-
     AlcoholOrDrugsSex = QN63,
     UseCondom = QN64,
     BirthControl = QN65,
-    # SexofSexualContact = Q66,
+    SexofSexualContact = Q66,
+    # QN67 sexual orientation
     VeryOverweight = QN68,
     WeightLoss = QN69,
     NoFruitJuice = QN70,
@@ -175,19 +176,18 @@ clean_yrbs_2017 <-
     SportsTeam = QN83,
     ConcussionSports = QN84,
     HIVTested = QN85,
-    # STDTested = QN85, Not asked in 2017
     DentistVisit = QN86,
-    # HasAsthma = QN87,
+    HasAsthma = QN87,
     EightorMoreHoursSleep = QN88,
-    # MostlyAGradesInSchool = QN89,
-    # DriveUsingMarijuana = QN90, in 2019 and 2021 the question is about pain killers
+    MostlyAGradesInSchool = QN89,
+    DriveUsingMarijuana = QN90,
     EverHallucinogenicDrugs = QN91,
     NoSportsDrinks = QN92,
     NoDrinksWater = QN93,
-    # FoodAllergy = QN94,
-    # MuscleStrengthening = QN95,
+    FoodAllergy = QN94,
+    MuscleStrengthening = QN95,
     IndoorTanning = QN96,
-    # SunBurn = QN97, not used in 2019 it asked for sunscreen use
+    SunBurn = QN97,
     DifficultyConcentrating = QN98,
     EnglishProficiency = QN99
   ) |>

@@ -16,16 +16,23 @@ The README serves as a comprehensive guide to the project, providing an overview
 To ensure proper licensing and usage guidelines, the appropriate license was added to the package on this date. This ensures clarity on how the data and code can be used, shared, and modified by others.
 
 - **Completed Cleaning YRBS 2019 Data **
-I did remarkable strides in cleaning the YRBS 2019 data. The preprocessing and data wrangling processes are nearly finished, ensuring that the data is in optimal shape for analysis.
+I did remarkable advances in cleaning the YRBS 2019 data. The preprocessing and data wrangling processes are finished, ensuring that the data is in optimal shape for analysis.
 
-## Date: 07/31/2023
+## Date 10/04/2023
+
+- **YRBS 2017 Data Cleaning Finished:**
+The cleaning process for the YRBS 2017 data has been completed.
+
+- **Combined Dataset Created (2017, 2019, and 2021):**
+I have successfully merged three datasets—2017, 2019, and 2021. To ensure consistency, I have retained only the variables that are common across all three datasets. As a result, I have created four different datasets: one comprehensive dataset for each year and a combined dataset containing only the variables present in all three years.
+
+- **Documentation Completed:**
+The documentation for all four datasets has been finalized.
 
 
-- Significant strides made in cleaning 2021 YRBS data
-- Identified modifications in questions between 2019 and 2021 surveys
-- Excluded 7 modified questions from 2019 dataset
-- Omitted 8 new questions from the 2021 questionnaire
-- Data selection subject to committee discussions
-- Documented both datasets. 
+
+
+
+
 
 
