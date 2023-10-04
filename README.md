@@ -9,18 +9,6 @@
 
 **Notes**: The progress notes are here [DATED_PROGRESS_NOTES.md](dated_progress_notes.md).
 
-## Run Me First
-
-``` r
-install.packages("remotes")
-
-remotes::install_cran(
-  c("conflicted", "tidyverse", "tidymodels", "knitr", "tidyREDCap", 
-  "skimr", "gtsumamry", "themis", "vip", "table1", "gt", "janitor", "usethis")
-)
-# remotes::install_github()
-```
-
 ## Installing my Package
 ```r
 library(devtools)
