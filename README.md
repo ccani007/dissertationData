@@ -9,7 +9,7 @@ This package contains cleaned datasets from the Youth Risk Behavior Surveillance
 
 Additionally, it is designed to **provide an immense time-saving** advantage for future researchers. With just a straightforward `data()` function call, you can easily access the raw, cleaned, or combined versions of the dataset within your R environment.
 
-**Notes**: The progress notes are here [DATED_PROGRESS_NOTES.md](dated_progress_notes.md).
+**Notes**: The progress notes are here [NEWS.md](https://github.com/ccani007/dissertationData/blob/main/NEWS.md).
 
 ## Installing my Package
 ```r
