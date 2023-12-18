@@ -1,0 +1,118 @@
+---
+title: "Creating Clean Combined YRBSS to Analyze"
+format: html
+---
+
+This script is designed to generate the final dataset for model training. Some variables have been excluded due to various reasons. For instance, variables with more than 80% missing data in the YRBSS 2017 dataset have been removed. Additionally, variables that are neither relevant to nor associated with suicide, or those exhibiting high correlation with other predictors, have also been omitted. A comprehensive explanation for the exclusion of each variable can be found here:
+Weight: The model will incorporate the participant's self-perception regarding weight, specifically feelings of being overweight or underweight. The variable of actual weight has not been consistently utilized as a predictor in suicide research and has faced scrutiny within the YRBS due to its nature as a self-reported measure by adolescents, which can undermine the reliability of the data.
+
+Vaping and aclohol Source: While the usage of vaping products  and alcohol is accounted for by other variables in the model, the specific sources from which adolescents obtain these products have not been shown to be direct predictors of suicide attempts. The inclusion of such a variable might detract from the model's focus on more established risk factors.
+
+Dental Visits: Directly, the frequency of dental visits has not been identified as a risk factor for suicide attempts. Indirectly, this variable could serve as a proxy for self-care, insurance coverage, or socioeconomic status. However, its inclusion in the model could potentially introduce spurious correlations, detracting from the clarity of the analysis.
+
+Muscle Strengthening and Excercice to loose weight: These variable assesses whether adolescents engage in exercise specifically for weight loss or muscle strengthening. Our analysis will include variables pertinent to physical activity, yet the intention behind such exercise has not been linked to suicide attempts and is therefore not relevant to our investigation. The inclusion of this predictor might redundantly measure general physical activity levels, which are already accounted for by other variables in the model
+
+
+Suicide Injury: Highly correlated with the outcome of suicide attempts, this variable is redundant for our analysis.
+
+High Cigarette Usage (More Than 10 Per Day): Omitted due to substantial data loss (93%).
+
+Quit Tobacco Use: Excluded due to significant data loss (83%).
+
+High Alcohol Consumption (More Than 10 Drinks): Removed due to its high correlation (4.8) with a variable assessing binge drinking, the item removes is QN45, its correaltion is with QN44.
+
+Alcohol or Drug Use During Sex, Condom Use, Birth Control Use: Eliminated due to extensive data loss (75%).
+
+English Proficiency: Not included as it may serve more as a demographic indicator without differentiation by race or ethnicity.
+
+HIV Testing: This variable has been excluded from the analysis as other variables more effectively assess sexual risk behaviors. The inclusion of HIV Testing is problematic due to its ambiguous nature; it could represent adolescents tested as a consequence of engaging in risk behaviors, or as a part of preventive health measures. This ambiguity could lead to interpretation biases in our analysis, as it blurs the distinction between risk-induced and preventative testing. To maintain the integrity and clarity of our analysis, it is prudent to omit this predictor
+
+```{r}
+library(dissertationData)
+library(tidyverse)
+library(conflicted)
+conflict_prefer("filter", "dplyr", quiet = TRUE)
+conflict_prefer("select", "dplyr", quiet = TRUE)
+```
+
+
+```{r}
+#| label: clenaing-data
+
+data("combinedYRBS")
+# 15,765 x 102
+
+## This script performs data cleaning and variable selection for the analysis. It excludes certain variables from the YRBS dataset that are either theoretically irrelevant, lack empirical evidence of association, or have more than 80% missing data. This step ensures that only pertinent and robust variables are included in the analysis. It also groups similar variables using the function created above, creates a clearer race categorization and assigns the correct type of class to variables. 
+
+cleaned_combined_YRBS <-
+  combinedYRBS |>
+  select(-c(
+    year, Weight, StoreSourceVaping, DentistVisit,
+    MuscleStrengthening, Height, MoreThan10CigPerDay,
+    SuicideInjuryMedicalAttention, SomeoneSourceAlcohol,
+    MoreThan10Drinks, AlcoholOrDrugsSex, UseCondom, BirthControl,
+    WeightLoss, EnglishProficiency, HIVTested
+  )) |>
+  mutate(id_case = as.character(row_number())) |> 
+  mutate(RaceEthnicity = case_when(
+    Race == "Hispanic/Latino" ~ "Hispanic",
+    HispanicLatino == 1 ~ "Hispanic",
+    Race == "White" ~ "Non-Hispanic White",
+    Race == "Black or African American" ~ "Black/African-American",
+    Race %in% c(
+      "Am Indian/Alaska Native",
+      "Native Hawaiian/Other PI",
+      "Asian",
+      "Multiple-Non-Hispanic"
+    ) ~ "Other race/ethnicity"
+  )) |>
+  create_from_rowsums(
+    c(
+      "EverUsedCocaine", "EverUsedInhalant", "EverUsedMetha",
+      "EverUsedHeroin", "EverHallucinogenicDrugs", "EverUsedEcstasy"
+    ),
+    "HardDrugsUse"
+  ) |>
+  create_from_rowsums(
+    c("PhysicalActivity", "SportsTeam"),
+    "SportAndActivity"
+  ) |>
+  create_from_rowsums(
+    c("SeatBealtUse", "TextingDriving", "DrivingDrinking", "DrinkingDriver"),
+    "RiskDrivingBehaviors"
+  ) |>
+  create_from_rowsums(
+    c("SexualAbuseByPartner", "SexualViolence"),
+    "SexualAbuse"
+  ) |>
+  create_from_rowsums(
+    c("EverTriedCigarrette", "FirstCigBefore13"),
+    "TriedCigarrete"
+  ) |>
+  create_from_rowsums(
+    c("NoFruitJuice", "NoFruit", "NoSalad", "NoCarrots", "NoOtherVeggies", "NoPotatoes"),
+    "NoFruitOrVeggies"
+  ) |>
+  create_from_rowsums(
+    c("SchoolPhysicalFight", "PhysicalFight"),
+    "PhysicalFights"
+  ) |>
+  select(-c(HispanicLatino, Race, psu, stratum)) |>
+  mutate(across(c(
+    Sex, SexOrientation, RaceEthnicity, HardDrugsUse, RiskDrivingBehaviors,
+    SexualAbuse, TriedCigarrete, NoFruitOrVeggies, SportAndActivity, 
+    PhysicalFights), factor)) |> 
+  mutate(Grade = as.numeric(Grade)) |>
+  filter(!is.na(SuicideAttempts)) |> 
+  mutate(RaceEthnicity = fct_relevel(RaceEthnicity, "Non-Hispanic White")) |> 
+  mutate(SexOrientation = fct_relevel(SexOrientation, "Heterosexual"))
+  
+
+# 36779 x 58
+
+```
+
+```{r}
+usethis::use_data(, overwrite = TRUE)
+```
+

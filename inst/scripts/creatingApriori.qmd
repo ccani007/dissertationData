@@ -1,0 +1,114 @@
+---
+title: "Creating A priori Dataset for Suicide Attempts"
+format: html
+---
+
+Across 17 studies consulted, the most frequently identified predictor was 'Hopelessness', observed in 15 studies (6.3% of the sample). This was closely followed by 'CurrentlyAlcohol', a predictor found in 11 studies (4.6%). Other noteworthy predictors include 'PhysicalFight' (4.2%), 'EverUsedCocaine' (3.8%), 'EverUsedMarihuana' (3.8%), and 'Sex' (3.8%). The least frequent predictors in this sample were 'EverUsedInhalant' (3.3%) and 'Age' (2.9%). This suggests a diverse range of factors that may be linked to suicidality, with hopelessness and alcohol use being particularly prominent among the study participants.
+
+From the evidence presented, it is clear that demographic variables, combined with factors such as hopelessness, substance use, and various risk behaviors—including drinking and driving, having multiple sexual partners, engaging in physical fights, and others—warrant inclusion in the preliminary logistic regression. Furthermore, aspects like being a victim of sexual abuse, bullying (including cyberbullying), sleep patterns, feelings of insecurity at school, suicidal ideation, weight considerations, physical activity levels, team sports participation, and dietary habits should also be considered.
+
+Supplementing these findings from the literature and aligning with the ideation-to-action framework, the factors I identified are consistent with the conceptual model proposed by Okado and Collegues 2021. This model, grounded in the ideation-to-action framework, focuses on the CDC's priority health behaviors, outlining both risk and protective factors for suicidal ideation and attempts. It emphasizes the roles of suicidal ideation, hopelessness, violent behaviors, substance use, sports participation, school safety, and victimization as precursors to suicide attempts.
+
+
+Given the synthesis of insights from both the literature and the proposed conceptual model, the a priori logistic regression will incorporate the following predictors:
+
+- Demographic variables (Sex, Race/Ethnicity, Grade, Age, Sex Orientation)
+- Hopelessness
+- Suicide Ideation
+- Substance use
+    - Current Alcohol Use
+    - Marijuana 
+    - Cocaine
+    - Inhalant
+    - Pain medicine
+    - Heroin 
+    - Metha
+    - Ecstasy
+- Risky Behaviors
+    - Physical fights
+    - Gun carrying
+    - Driving and drinking
+    - Not using seat belt 
+    - Texting and driving 
+    - Sex with 4 or more partners
+- Sexual abuse 
+- Bullying
+- Cyberbullying
+- Sleep 
+- Threatened at school 
+- Physical Activity 
+- Team sports
+
+
+```{r}
+library(dissertationData)
+library(tidyverse)
+library(conflicted)
+conflict_prefer("filter", "dplyr", quiet = TRUE)
+conflict_prefer("select", "dplyr", quiet = TRUE)
+```
+
+```{r}
+
+data("clean_yrbs_2017")
+# 14,765 x 102
+```
+
+
+```{r}
+suicide_related_variables <-
+  clean_yrbs_2017 |>
+  select(
+    weight, stratum, psu, Sex,
+    Race, Age, SexOrientation, HispanicLatino,
+    SeatBealtUse, DrivingDrinking, TextingDriving,
+    GunCarrying, ThreatenedInSchool, PhysicalFight,
+    ForcedSexualIntercourse, Bullying, CyberBullying,  
+    Hopelessness, SuicideIdeation, SuicidePlan, SuicideAttempts,
+    CurrentlySmokingCigarette, CurrentlyVaping,
+    CurrentlyAlcohol, CurrentlyUseMarihuana, EverUsedCocaine,
+    EverUsedInhalant, EverUsedMetha, EverUsedHeroin,
+    EverHallucinogenicDrugs, EverUsedEcstasy,
+    Sex4OrMorePartners,
+    PhysicalActivity, SportsTeam, PainMedicine,
+    EightorMoreHoursSleep
+  ) |>
+  mutate(Race_ethnicity = case_when(
+    Race == "Hispanic/Latino" ~ "Hispanic",
+    HispanicLatino == 1 ~ "Hispanic",
+    Race == "White" ~ "Non-Hispanic White",
+    Race == "Black or African American" ~ "Black/African-American",
+    Race %in% c(
+      "Am Indian/Alaska Native",
+      "Native Hawaiian/Other PI",
+      "Asian",
+      "Multiple-Non-Hispanic"
+    ) ~ "Other race/ethnicity"
+  )) |>
+  create_from_rowsums(
+    c(
+      "EverUsedCocaine", "EverUsedInhalant", "EverUsedMetha",
+      "EverUsedHeroin", "EverHallucinogenicDrugs", "EverUsedEcstasy"
+    ),
+    "HardDrugsUse"
+  ) |>
+  create_from_rowsums(c("PhysicalActivity", "SportsTeam"), "SportAndActivity") |>
+  create_from_rowsums(
+    c("SeatBealtUse", "TextingDriving", "DrivingDrinking"),
+    "RiskDrivingBehaviors"
+  ) |>
+  mutate(across(c(
+    Sex, SexOrientation, Race_ethnicity, HardDrugsUse,
+    SportAndActivity, RiskDrivingBehaviors
+  ), factor)) |>
+  mutate("RaceEthnicity" = fct_relevel(
+    Race_ethnicity, "Non-Hispanic White"
+  )) |>
+  select(-Race_ethnicity, -Race, -HispanicLatino) |>
+  mutate(SexOrientation = fct_relevel(SexOrientation, "Heterosexual")) 
+```
+
+```{r}
+usethis::use_data(suicide_related_variables, overwrite = TRUE)
+```
+

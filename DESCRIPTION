@@ -19,5 +19,10 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Depends: 
-    R (>= 2.10)
+    R (>= 2.10), 
+    dplyr
 LazyData: true
+LazyDataCompression: xz
+Imports: 
+    magrittr,
+    rlang
