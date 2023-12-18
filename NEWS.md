@@ -1,7 +1,10 @@
-# dissertationData 1.0.0
 
+# dissertationData 1.1.0
+
+## Date 12/18/2023
 
 - **Integration of Real Data for Dissertation Analysis**
+
 The dissertation utilizes two distinct datasets. The first dataset includes a select group of predictors, specifically chosen for conducting a priori determined logistic regression. The second dataset is more comprehensive, encompassing all potential predictors from the YRBSS that are theoretically relevant for predicting adolescent suicide attempts, with a criterion of less than 80% missing data for inclusion.
 
 Both datasets have been optimized by consolidating related variables into single composite variables. This approach not only minimizes missing data but also diminishes redundancy, enhancing the overall analytical efficacy.
@@ -10,7 +13,15 @@ Both datasets have been optimized by consolidating related variables into single
 
 A new function has been introduced to facilitate researchers in generating their own composite variables. This tool is designed to streamline the process of combining multiple related variables into a single, more effective predictor, allowing for more tailored and precise data analysis.
 
+- **New Function for Recoding Binary Variables**
 
+A new function has been added to facilitate the recoding of binary variables. This function, designed to convert values from 0-1 to a more interpretable format of 'No'-'Yes', enhances data clarity and eases subsequent analysis.
+
+- **New Function to Easily Plot Risk Factors Relative to Outcomes of Interest**
+
+Another recent addition is a function specifically developed to plot risk factors in relation to a chosen outcome of interest. This tool streamlines the visualization process, allowing for a clear and concise representation of how various risk factors correlate with outcomes such as suicide attempts.
+
+# dissertationData 1.0.0
 
 ## Date 10/04/2023
 
