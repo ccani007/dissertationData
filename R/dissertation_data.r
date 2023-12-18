@@ -1,0 +1,96 @@
+#' Dataset with Suicide Related Predictors Using the 2017, 2019 and 2021 YRBSS data
+#'
+#'@title dissertation_data
+#'
+#' @docType data
+#'
+#' @usage data(dissertation_data)
+#'
+#' @description This dataset, curated specifically for training models in my
+#'      dissertation, encompasses variables from the YRBS 2017, 2019, and 2021
+#'      datasets. Additionally, several variables have been specifically
+#'      constructed by combining common variables; for example,
+#'      'RiskDrivingBehaviors' is a composite variable derived from
+#'      'SeatBeltUse', 'TextingDriving', 'DrivingDrinking', and
+#'      'DrinkingDriver'. The selection of variables is strategically focused
+#'       on analyzing suicidality Rigorous curation ensured that each included
+#'       variable has less than 80% missing data. The selection prioritizes
+#'       variables that are pertinent to the analysis of suicidality.
+#'       For details on the exclusion criteria and a list of removed variables,
+#'       refer to 'inst/scripts/creatingCompleteDataset.qmd'.
+#'
+#'\itemize{
+#' \item{weight}
+#' \item{Sex}
+#' \item{Age}
+#' \item{Grade}
+#' \item{SexOrientation}
+#' \item{WeaponCarryingSchool}
+#' \item{GunCarrying}
+#' \item{UnsafeAtSchool}
+#' \item{ThreatenedInSchool}
+#' \item{ForcedSexualIntercourse}
+#' \item{PhysicalDaitingViolence}
+#' \item{Bullying}
+#' \item{CyberBullying}
+#' \item{Hopelessness}
+#' \item{SuicideIdeation}
+#' \item{SuicidePlan}
+#' \item{SuicideAttempts}
+#' \item{CurrentlySmokingCigarette}
+#' \item{EverTriedVaping}
+#' \item{CurrentlyVaping}
+#' \item{CurrentlySmokelessTobacco}
+#' \item{CurrentlySmokingCigar}
+#' \item{QuitTobbaco}
+#' \item{FirstAlcoholBefore13}
+#' \item{CurrentlyAlcohol}
+#' \item{CurrentlyBingeDrinking}
+#' \item{EverUsedMarihuana}
+#' \item{FirstMarihuanaBefore13}
+#' \item{CurrentlyUseMarihuana}
+#' \item{EverUsedSyntheticMarihuana}
+#' \item{PainMedicine}
+#' \item{EverUsedInjectedIllegalDrug}
+#' \item{OfferedDrugsSchool}
+#' \item{EverHadSex}
+#' \item{SexBefore13}
+#' \item{Sex4OrMorePartners}
+#' \item{SexuallyActive}
+#' \item{VeryOverweight}
+#' \item{NoSoda}
+#' \item{NoMilk}
+#' \item{NoBreakfast}
+#' \item{ThreeOrMoreHoursTV}
+#' \item{ThreeOrMoreHoursVideoGames}
+#' \item{AttendedPEClass}
+#' \item{ConcussionSports}
+#' \item{EightorMoreHoursSleep}
+#' \item{NoSportsDrinks}
+#' \item{NoDrinksWater}
+#' \item{DifficultyConcentrating}
+#' \item{RaceEthnicity}
+#' \item{HardDrugsUse} {composite variable}
+#' \item{SportAndActivity} {composite variable}
+#' \item{RiskDrivingBehaviors}{Type label here}
+#' \item{SexualAbuse} {composite variable}
+#' \item{TriedCigarrete} {composite variable}
+#' \item{NoFruitOrVeggies} {composite variable}
+#' \item{PhysicalFights} {PhysicalFights}
+#'}
+#'
+#' @format A tibble with 36779 rows and 58 variables:
+#'
+#'\describe{
+#'  This dataset exclusively comprises questions sourced from Appendix A of the
+#'   YRBS 2017, 2019 and 2021, specifically focusing on the QN dichotomous variables.
+#'   For comprehensive information, please refer to the documentation
+#'   provided in the 2017, 2019 and 2021 National YRBS Data Users Guide. In this dataset,
+#'   each variable follows a binary pattern: a value of 1 indicates the
+#'   presence of the specified behavior, while a value of 0 signifies its
+#'   absence. For instance, with regard to Suicide Attempts, a value of 1
+#'   signifies that adolescents responded affirmatively to having made
+#'   suicide attempts, whereas 0 indicates a negative response.
+#'  }
+#'
+'dissertation_data'

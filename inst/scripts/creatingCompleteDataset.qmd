@@ -44,7 +44,7 @@ data("combinedYRBS")
 
 ## This script performs data cleaning and variable selection for the analysis. It excludes certain variables from the YRBS dataset that are either theoretically irrelevant, lack empirical evidence of association, or have more than 80% missing data. This step ensures that only pertinent and robust variables are included in the analysis. It also groups similar variables using the function created above, creates a clearer race categorization and assigns the correct type of class to variables. 
 
-cleaned_combined_YRBS <-
+dissertation_data <-
   combinedYRBS |>
   select(-c(
     year, Weight, StoreSourceVaping, DentistVisit,
@@ -53,7 +53,6 @@ cleaned_combined_YRBS <-
     MoreThan10Drinks, AlcoholOrDrugsSex, UseCondom, BirthControl,
     WeightLoss, EnglishProficiency, HIVTested
   )) |>
-  mutate(id_case = as.character(row_number())) |> 
   mutate(RaceEthnicity = case_when(
     Race == "Hispanic/Latino" ~ "Hispanic",
     HispanicLatino == 1 ~ "Hispanic",
@@ -113,6 +112,6 @@ cleaned_combined_YRBS <-
 ```
 
 ```{r}
-usethis::use_data(, overwrite = TRUE)
+usethis::use_data(dissertation_data, overwrite = TRUE)
 ```
 

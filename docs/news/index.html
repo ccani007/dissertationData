@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dissertationData</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0</span>
       </span>
     </div>
 
@@ -43,10 +43,16 @@
 
     <div class="section level2">
 <h2 class="page-header" data-toc-text="1.0.0" id="dissertationdata-100">dissertationData 1.0.0<a class="anchor" aria-label="anchor" href="#dissertationdata-100"></a></h2>
+<ul><li>
+<strong>Integration of Real Data for Dissertation Analysis</strong> The dissertation utilizes two distinct datasets. The first dataset includes a select group of predictors, specifically chosen for conducting a priori determined logistic regression. The second dataset is more comprehensive, encompassing all potential predictors from the YRBSS that are theoretically relevant for predicting adolescent suicide attempts, with a criterion of less than 80% missing data for inclusion.</li>
+</ul><p>Both datasets have been optimized by consolidating related variables into single composite variables. This approach not only minimizes missing data but also diminishes redundancy, enhancing the overall analytical efficacy.</p>
+<ul><li><strong>New Function for Creating Composite Variables</strong></li>
+</ul><p>A new function has been introduced to facilitate researchers in generating their own composite variables. This tool is designed to streamline the process of combining multiple related variables into a single, more effective predictor, allowing for more tailored and precise data analysis.</p>
 <div class="section level3">
-<h3 id="date-1-0-0">Date: 07/27/2023<a class="anchor" aria-label="anchor" href="#date-1-0-0"></a></h3>
-<ul><li><p><strong>Data Download from CDC Website:</strong> On this date, both the YRBS datasets for the years 2019 and 2021 were downloaded from the official Centers for Disease Control and Prevention (CDC) website. The data was obtained using SPSS syntax to ensure accuracy and consistency. Following the download, the files were stored inside the “extData” directory of the repository.</p></li>
-<li><p><strong>Data Transformation to .rda Format:</strong> On the same date, the SPSS files containing the YRBS data were transformed into a more convenient and efficient format for inclusion in the package. The datasets were converted to .rda files, making them compatible with R and facilitating their seamless integration into the repository.</p></li>
+<h3 id="date-1-0-0">Date 10/04/2023<a class="anchor" aria-label="anchor" href="#date-1-0-0"></a></h3>
+<ul><li><p><strong>YRBS 2017 Data Cleaning Finished:</strong> The cleaning process for the YRBS 2017 data has been completed.</p></li>
+<li><p><strong>Combined Dataset Created (2017, 2019, and 2021):</strong> I have successfully merged three datasets—2017, 2019, and 2021. To ensure consistency, I have retained only the variables that are common across all three datasets. As a result, I have created four different datasets: one comprehensive dataset for each year and a combined dataset containing only the variables present in all three years.</p></li>
+<li><p><strong>Documentation Completed:</strong> The documentation for all four datasets has been finalized.</p></li>
 </ul></div>
 <div class="section level3">
 <h3 id="date-1-0-0-1">Date: 07/28/2023<a class="anchor" aria-label="anchor" href="#date-1-0-0-1"></a></h3>
@@ -55,10 +61,9 @@
 <li><p><strong>Completed Cleaning YRBS 2019 Data </strong> I did remarkable advances in cleaning the YRBS 2019 data. The preprocessing and data wrangling processes are finished, ensuring that the data is in optimal shape for analysis.</p></li>
 </ul></div>
 <div class="section level3">
-<h3 id="date-1-0-0-2">Date 10/04/2023<a class="anchor" aria-label="anchor" href="#date-1-0-0-2"></a></h3>
-<ul><li><p><strong>YRBS 2017 Data Cleaning Finished:</strong> The cleaning process for the YRBS 2017 data has been completed.</p></li>
-<li><p><strong>Combined Dataset Created (2017, 2019, and 2021):</strong> I have successfully merged three datasets—2017, 2019, and 2021. To ensure consistency, I have retained only the variables that are common across all three datasets. As a result, I have created four different datasets: one comprehensive dataset for each year and a combined dataset containing only the variables present in all three years.</p></li>
-<li><p><strong>Documentation Completed:</strong> The documentation for all four datasets has been finalized.</p></li>
+<h3 id="date-1-0-0-2">Date: 07/27/2023<a class="anchor" aria-label="anchor" href="#date-1-0-0-2"></a></h3>
+<ul><li><p><strong>Data Download from CDC Website:</strong> On this date, both the YRBS datasets for the years 2019 and 2021 were downloaded from the official Centers for Disease Control and Prevention (CDC) website. The data was obtained using SPSS syntax to ensure accuracy and consistency. Following the download, the files were stored inside the “extData” directory of the repository.</p></li>
+<li><p><strong>Data Transformation to .rda Format:</strong> On the same date, the SPSS files containing the YRBS data were transformed into a more convenient and efficient format for inclusion in the package. The datasets were converted to .rda files, making them compatible with R and facilitating their seamless integration into the repository.</p></li>
 </ul></div>
 </div>
   </div>
