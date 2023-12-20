@@ -18,8 +18,10 @@
 #'       variables that are pertinent to the analysis of suicidality.
 #'       For details on the exclusion criteria and a list of removed variables,
 #'       refer to 'inst/scripts/creatingCompleteDataset.qmd'.
+#'       NOTE: Missing data for SuicideAttempts
 #'
 #'\itemize{
+#' \item{year}
 #' \item{weight}
 #' \item{Sex}
 #' \item{Age}

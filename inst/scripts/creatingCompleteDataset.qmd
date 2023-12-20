@@ -36,6 +36,73 @@ conflict_prefer("select", "dplyr", quiet = TRUE)
 ```
 
 
+Combining Variables Based on Correlation:
+
+- Sexual Abuse Variables: The variables 'Sexual abuse by partner' and 'Sexual violence' exhibit a strong correlation (0.7). To streamline the analysis, these will be merged into a single category named SexualAbuse.
+
+- Cigarette Use Variables: 'EverTriedCigarette' and 'FirstCigBefore13' show a moderate correlation (0.5). These will be unified under the new variable TriedCigarette.
+
+- Dietary Variables: The variables 'NoFruitJuice', 'NoFruit', 'NoSalad', 'NoCarrots', 'NoOtherVeggies', and 'NoPotatoes', related to dietary habits, will be consolidated into one comprehensive variable named NoFruitOrVeggies.
+
+- Physical Fight Variables: 'SchoolPhysicalFight' and 'PhysicalFight' are significantly correlated (0.54). These will be combined into a single variable to represent this aspect.
+
+
+```{r}
+#| label: checking-correlations
+
+correlations_stepwise <- 
+  combinedYRBS |>
+  filter(year == 2017) |> 
+  select(-c(weight, stratum, psu, Sex, Age, SexOrientation, Race)) |> 
+  mutate(across(everything(), ~ as.numeric(as.character(.))))  
+
+
+correlations_stepwise |> 
+  select(UnsafeAtSchool, ThreatenedInSchool, SchoolPhysicalFight) |> 
+  drop_na() |> 
+  cor(method = "spearman")
+
+correlations_stepwise |> 
+  select(ForcedSexualIntercourse, SexualViolence, SexualAbuseByPartner, PhysicalDaitingViolence) |> 
+  drop_na() |> 
+  cor(method = "spearman")
+
+correlations_stepwise |> 
+  select(EverTriedCigarrette, FirstCigBefore13, CurrentlySmokingCigarette) |> 
+  drop_na() |> 
+  cor(method = "spearman")
+
+
+correlations_stepwise |> 
+  select(MoreThan10Drinks, CurrentlyBingeDrinking) |> 
+  drop_na() |> 
+  cor(method = "spearman")
+
+correlations_stepwise |> 
+  select(EverUsedMarihuana, FirstMarihuanaBefore13) |> 
+  drop_na() |> 
+  cor(method = "spearman") 
+
+correlations_stepwise |> 
+  select(NoFruit, NoSalad, NoPotatoes, NoCarrots, NoOtherVeggies, NoSoda, 
+         NoMilk, NoBreakfast) |> 
+  drop_na() |> 
+  cor(method = "spearman")
+
+
+correlations_stepwise |> 
+  select(ThreeOrMoreHoursTV, ThreeOrMoreHoursVideoGames) |> 
+  drop_na() |> 
+  cor(method = "spearman")
+
+correlations_stepwise |> 
+  select(PhysicalFight, SchoolPhysicalFight) |> 
+  drop_na() |> 
+  cor(method = "spearman")
+```
+
+
+
 ```{r}
 #| label: clenaing-data
 
@@ -47,7 +114,7 @@ data("combinedYRBS")
 dissertation_data <-
   combinedYRBS |>
   select(-c(
-    year, Weight, StoreSourceVaping, DentistVisit,
+    Weight, StoreSourceVaping, DentistVisit,
     MuscleStrengthening, Height, MoreThan10CigPerDay,
     SuicideInjuryMedicalAttention, SomeoneSourceAlcohol,
     MoreThan10Drinks, AlcoholOrDrugsSex, UseCondom, BirthControl,

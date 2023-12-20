@@ -37,6 +37,7 @@ For details on the exclusion criteria and a list of removed variables,
 refer to 'inst/scripts/creatingCompleteDataset.qmd'.
 
 \itemize{
+\item{year}
 \item{weight}
 \item{Sex}
 \item{Age}
