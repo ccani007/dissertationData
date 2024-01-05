@@ -1,6 +1,6 @@
 Package: dissertationData
 Title: Cleaned and combined YRBS 2017, 2019 and 2021 data 
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: 
       person(
         given  = "Catalina",
@@ -19,5 +19,13 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Depends: 
-    R (>= 2.10)
+    R (>= 2.10), 
+    dplyr, 
+    stringr,
+    tidyr, 
+    ggplot2
 LazyData: true
+LazyDataCompression: xz
+Imports: 
+    magrittr,
+    rlang
