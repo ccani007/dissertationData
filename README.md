@@ -1,3 +1,7 @@
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/ccani007/dissertationData/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ccani007/dissertationData/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
+
 # dissertationData
 
 
