@@ -35,6 +35,7 @@ variable has less than 80\% missing data. The selection prioritizes
 variables that are pertinent to the analysis of suicidality.
 For details on the exclusion criteria and a list of removed variables,
 refer to 'inst/scripts/creatingCompleteDataset.qmd'.
+NOTE: Missing data for SuicideAttempts
 
 \itemize{
 \item{year}
