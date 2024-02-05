@@ -165,7 +165,7 @@ dissertation_data <-
   ) |>
   select(-c(HispanicLatino, Race)) |>
   mutate(across(c(
-    Sex, SexOrientation, RaceEthnicity, HardDrugsUse, RiskDrivingBehaviors,
+    Sex, Grade, SexOrientation, RaceEthnicity, HardDrugsUse, RiskDrivingBehaviors,
     SexualAbuse, TriedCigarrete, NoFruitOrVeggies, SportAndActivity, 
     PhysicalFights), factor)) |> 
   mutate(Grade = as.numeric(Grade)) |>
