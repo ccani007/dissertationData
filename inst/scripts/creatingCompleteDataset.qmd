@@ -168,7 +168,6 @@ dissertation_data <-
     Sex, Grade, SexOrientation, RaceEthnicity, HardDrugsUse, RiskDrivingBehaviors,
     SexualAbuse, TriedCigarrete, NoFruitOrVeggies, SportAndActivity, 
     PhysicalFights), factor)) |> 
-  mutate(Grade = as.numeric(Grade)) |>
   filter(!is.na(SuicideAttempts)) |> 
   mutate(RaceEthnicity = fct_relevel(RaceEthnicity, "Non-Hispanic White")) |> 
   mutate(SexOrientation = fct_relevel(SexOrientation, "Heterosexual"))
