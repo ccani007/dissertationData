@@ -1,6 +1,12 @@
 
 # dissertationData 1.1.0
 
+## Date 01/24/2025
+- **Adding 2023 YRBS Data set**
+
+The newest data release by the CDC was included in the package. 
+Its yet not integrated with the previous years. 
+
 ## Date 12/18/2023
 
 - **Integration of Real Data for Dissertation Analysis**

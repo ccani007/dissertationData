@@ -1,22 +1,22 @@
-#' Youth Risk Behavior Surveillance System 2019
+#' Youth Risk Behavior Surveillance System 2023
 #'
-#' @title clean_yrbs_2019
+#' @title clean_yrbs_2023
 #'
 #' @docType data
 #'
-#' @usage data(clean_yrbs_2019)
+#' @usage data(clean_yrbs_2023)
 #'
-#' @description This is the imported and cleaned 2019 YRBS Data.
+#' @description This is the imported and cleaned 2023 YRBS Data.
 #'     This data set monitors priority health risk behaviors that contribute
 #'     markedly to the leading causes of death, disability, and social problems
 #'     among youth and adults in the United States.
-#'     These behaviors, often include:
+#'
 #'
 #'\describe{
 #'  This dataset exclusively comprises questions sourced from Appendix A of the
-#'   YRBS 2019, specifically focusing on the QN dichotomous variables.
+#'   YRBS 2023, specifically focusing on the QN dichotomous variables.
 #'   For comprehensive information, please refer to the documentation
-#'   provided in the 2019 National YRBS Data Users Guide. In this dataset,
+#'   provided in the 2023 National YRBS Data Users Guide. In this dataset,
 #'   each variable follows a binary pattern: a value of 1 indicates the
 #'   presence of the specified behavior, while a value of 0 signifies its
 #'   absence. For instance, with regard to Suicide Attempts, a value of 1
@@ -34,8 +34,7 @@
 #'  }
 #'   }
 #'
-#'@format A tibble with 13,677 and 102 variables
+#'@format A tibble with 201,03 and 110 variables
 #'
 #'
-#'
-"clean_yrbs_2019"
+"clean_yrbs_2023"

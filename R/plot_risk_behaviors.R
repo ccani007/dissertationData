@@ -23,6 +23,7 @@ plot_risk_behaviors <- function(data,
                                 plot_title,
                                 fill_colors = c("#24bccb", "#4e2d86")) {
 
+
   data %>%
     select(all_of(c(behavior_vars, suicide_var))) %>%
     drop_na() %>%
@@ -32,7 +33,7 @@ plot_risk_behaviors <- function(data,
       values_to = "Answer"          # New column name for 'Answer'
     ) %>%
     mutate(
-      Answer = as.numeric(as.character(Answer)),
+      Answer = as.numeric(as.character("Answer")),
       SuicideAttempts = as.factor(.[[suicide_var]])
     ) %>%
     summarize(mean = mean(Answer, na.rm = TRUE), .by = c(Variable, SuicideAttempts)) %>%

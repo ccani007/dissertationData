@@ -1,19 +1,19 @@
-#' Youth Risk Behavior Surveillance System 2017
+#' Youth Risk Behavior Surveillance System 2023
 #'
-#' @title raw2017
+#' @title raw2023
 #'
 #' @docType data
 #'
-#' @usage data(raw2017)
+#' @usage data(raw2023)
 #'
-#' @description This is the imported raw version of the 2017 YRBS Data.
+#' @description This is the imported raw version of the 2023 YRBS Data.
 #'     This data set monitors priority health risk behaviors that contribute
 #'     markedly to the leading causes of death, disability, and social problems
 #'     among youth and adults in the United States.
 #'     These behaviors, often include:
 #'
-#'\describe{
-#'   Please refer to the documentation provided in the 2017 National
+#' \describe{
+#'   Please refer to the documentation provided in the 2023 National
 #'   YRBS Data Users Guide.
 #'  \itemize{
 #'   \item{Behaviors that contribute to unintentional injuries and violence}
@@ -26,8 +26,8 @@
 #'   }
 #'  }
 #'
-#'@format A tibble with 14,765 and 247 variables
+#'@format A tibble with 17,232 and 250 variables
 #'
 #'
 #'
-"raw2017"
+"raw2023"

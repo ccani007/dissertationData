@@ -6,18 +6,6 @@
 \title{dissertation_data}
 \format{
 A tibble with 36779 rows and 58 variables:
-
-\describe{
-This dataset exclusively comprises questions sourced from Appendix A of the
-YRBS 2017, 2019 and 2021, specifically focusing on the QN dichotomous variables.
-For comprehensive information, please refer to the documentation
-provided in the 2017, 2019 and 2021 National YRBS Data Users Guide. In this dataset,
-each variable follows a binary pattern: a value of 1 indicates the
-presence of the specified behavior, while a value of 0 signifies its
-absence. For instance, with regard to Suicide Attempts, a value of 1
-signifies that adolescents responded affirmatively to having made
-suicide attempts, whereas 0 indicates a negative response.
-}
 }
 \usage{
 data(dissertation_data)
@@ -37,6 +25,16 @@ For details on the exclusion criteria and a list of removed variables,
 refer to 'inst/scripts/creatingCompleteDataset.qmd'.
 NOTE: Missing data for SuicideAttempts
 
+\describe{
+This dataset exclusively comprises questions sourced from Appendix A of the
+YRBS 2017, 2019 and 2021, specifically focusing on the QN dichotomous variables.
+For comprehensive information, please refer to the documentation
+provided in the 2017, 2019 and 2021 National YRBS Data Users Guide. In this dataset,
+each variable follows a binary pattern: a value of 1 indicates the
+presence of the specified behavior, while a value of 0 signifies its
+absence. For instance, with regard to Suicide Attempts, a value of 1
+signifies that adolescents responded affirmatively to having made
+suicide attempts, whereas 0 indicates a negative response.
 \itemize{
 \item{year}
 \item{weight}
@@ -96,6 +94,7 @@ NOTE: Missing data for SuicideAttempts
 \item{TriedCigarrete} {composite variable}
 \item{NoFruitOrVeggies} {composite variable}
 \item{PhysicalFights} {PhysicalFights}
+}
 }
 }
 \details{

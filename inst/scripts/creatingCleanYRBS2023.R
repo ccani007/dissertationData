@@ -1,6 +1,6 @@
 # Cleaning the YRBS 2023 data
 # Catalina Canizares
-# 01-06-2025
+# 01-24-2025
 
 
 # The following script aims to generate a clean data set for YRBS 2023 using the
@@ -14,11 +14,8 @@ library(haven)
 
 raw_yrbs_2023 <- read_sav("inst/extData/yrbs2023.sav")
 
-raw_yrbss_2023_df <- tidyREDCap::drop_labels(raw2021)
+raw_yrbss_2023_df <- tidyREDCap::drop_labels(raw_yrbs_2023)
 # 20103x250
-
-# Empieza a trabajar desde aca! nada esta hecho de aqui en adelante.
-
 
 ### This function is created to recode binary factors from 1 and 2 to 0 and 1.
 RecodeBinary <- function(x) {
@@ -37,11 +34,11 @@ RecodeBinary <- function(x) {
 #  Students must have provided valid data to be included in any dichotomous
 #  variable calculations.
 
-clean_yrbs_2021 <-
-  raw_yrbss_2021_df |>
+clean_yrbs_2023 <-
+  raw_yrbss_2023_df |>
   select(
     weight, stratum, psu, Q1, Q2, Q3, Q4,
-    Q6, Q7, Q64, Q65, raceeth, starts_with("qn")
+    Q6, Q7, Q63, Q64, Q65, raceeth, starts_with("qn")
   ) |>
   mutate(
     Sex = case_when(
@@ -86,15 +83,35 @@ clean_yrbs_2021 <-
   ) |>
   mutate(
     SexOrientation = case_when(
-      Q65 == 1 ~ "Heterosexual",
-      Q65 == 2 ~ "Gay or Lesbian",
-      Q65 == 3 ~ "Bisexual",
-      Q65 == 4 ~ "Not sure",
+      Q64 == 1 ~ "Heterosexual",
+      Q64 == 2 ~ "Gay or Lesbian",
+      Q64 == 3 ~ "Bisexual",
+      Q64 == 4 ~ "Some other identity",
+      Q64 == 5 ~ "Questioning identity",
+      Q64 == 6 ~ "I do not understand this question",
+      TRUE ~ NA_character_
+    )
+  ) |>
+  mutate(
+    SexSexualContact = case_when(
+      Q63 == 1 ~ "Never had sex",
+      Q63 == 2 ~ "Females",
+      Q63 == 3 ~ "Males",
+      Q63 == 4 ~ "Both",
+      TRUE ~ NA_character_
+    )
+  ) |>
+  mutate(
+    Transgender = case_when(
+      Q65 == 1 ~ "No",
+      Q65 == 2 ~ "Yes",
+      Q65 == 3 ~ "Not sure",
+      Q65 == 4 ~ "I do not understand this question",
       TRUE ~ NA_character_
     )
   ) |>
   mutate(across(c(QN8:QN99), RecodeBinary)) |>
-  select(-c(Q1, Q2, Q3, Q65, raceeth)) |>
+  select(-c(Q1, Q2, Q3, Q64, Q63, Q65, raceeth)) |>
   select(
     weight, stratum, psu, Sex, Race, Age, Grade,
     SexOrientation, everything()
@@ -103,7 +120,7 @@ clean_yrbs_2021 <-
     HispanicLatino = Q4,
     Height = Q6,
     Weight = Q7,
-    SeatBealtUse = QN8,
+    SeatBeltUse = QN8,
     DrinkingDriver = QN9,
     DrivingDrinking = QN10,
     TextingDriving = QN11,
@@ -117,50 +134,49 @@ clean_yrbs_2021 <-
     ForcedSexualIntercourse = QN19,
     SexualViolence = QN20,
     SexualAbuseByPartner = QN21,
-    PhysicalDaitingViolence = QN22,
-    Bullying = QN23,
-    CyberBullying = QN24,
-    Hopelessness = QN25,
-    SuicideIdeation = QN26,
-    SuicidePlan = QN27,
-    SuicideAttempts = QN28,
-    SuicideInjuryMedicalAttention = QN29,
-    EverTriedCigarrette = QN30,
-    FirstCigBefore13 = QN31,
-    CurrentlySmokingCigarette = QN32,
-    MoreThan10CigPerDay = QN33,
-    EverTriedVaping = QN34,
-    CurrentlyVaping = QN35,
-    StoreSourceVaping = QN36,
-    CurrentlySmokelessTobacco = QN37,
-    CurrentlySmokingCigar = QN38,
-    QuitTobbaco = QN39,
-    FirstAlcoholBefore13 = QN40,
-    CurrentlyAlcohol = QN41,
-    CurrentlyBingeDrinking = QN42,
-    MoreThan10Drinks = QN43,
-    SomeoneSourceAlcohol = QN44,
-    EverUsedMarihuana = QN45,
-    FirstMarihuanaBefore13 = QN46,
-    CurrentlyUseMarihuana = QN47,
-    EverUsedSyntheticMarihuana = QN48,
+    PhysicalDatingViolence = QN22,
+    TreatedUnfairlyRace = QN23,
+    Bullying = QN24,
+    CyberBullying = QN25,
+    Hopelessness = QN26,
+    SuicideIdeation = QN27,
+    SuicidePlan = QN28,
+    SuicideAttempts = QN29,
+    SuicideInjuryMedicalAttention = QN30,
+    EverTriedCigarette = QN31,
+    FirstCigaretteBefore13 = QN32,
+    CurrentlySmokingCigarette = QN33,
+    MoreThan10CigarettesPerDay = QN34,
+    EverTriedVaping = QN35,
+    CurrentlyVaping = QN36,
+    StoreSourceVaping = QN37,
+    CurrentlySmokelessTobacco = QN38,
+    CurrentlySmokingCigar = QN39,
+    QuitTobacco = QN40,
+    FirstAlcoholBefore13 = QN41,
+    CurrentlyAlcohol = QN42,
+    CurrentlyBingeDrinking = QN43,
+    MoreThan10Drinks = QN44,
+    SomeoneSourceAlcohol = QN45,
+    EverUsedMarijuana = QN46,
+    FirstMarijuanaBefore13 = QN47,
+    CurrentlyUsingMarijuana = QN48,
+    # EverUsedSyntheticMarijuana = QN48,
     PainMedicine = QN49,
     EverUsedCocaine = QN50,
     EverUsedInhalant = QN51,
     EverUsedHeroin = QN52,
-    EverUsedMetha = QN53,
+    EverUsedMethamphetamine = QN53,
     EverUsedEcstasy = QN54,
-    EverUsedInjectedIllegalDrug = QN55,
-    OfferedDrugsSchool = QN56,
-    EverHadSex = QN57,
-    SexBefore13 = QN58,
-    Sex4OrMorePartners = QN59,
-    SexuallyActive = QN60,
-    AlcoholOrDrugsSex = QN61,
-    UseCondom = QN62,
-    BirthControl = QN63,
-    SexofSexualContact = Q64,
-    # Q 65 Sexual orientation
+    EverInjectedIllegalDrug = QN55,
+    # OfferedDrugsSchool = QN56,
+    EverHadSex = QN56,
+    SexBefore13 = QN57,
+    Sex4OrMorePartners = QN58,
+    SexuallyActive = QN59,
+    AlcoholOrDrugsSex = QN60,
+    UsedCondom = QN61,
+    BirthControl = QN62,
     VeryOverweight = QN66,
     WeightLoss = QN67,
     NoFruitJuice = QN68,
@@ -170,35 +186,45 @@ clean_yrbs_2021 <-
     NoCarrots = QN72,
     NoOtherVeggies = QN73,
     NoSoda = QN74,
-    NoMilk = QN75,
-    NoBreakfast = QN76,
-    PhysicalActivity = QN77,
-    ThreeOrMoreHoursTV = QN78,
-    AttendedPEClass = QN79,
-    SportsTeam = QN80,
-    ConcussionSports = QN81,
-    HIVTested = QN82,
-    STDTested = QN83,
-    DentistVisit = QN84,
-    NotGoodMentalHealth = QN85,
-    EightorMoreHoursSleep = QN86,
-    Homelessness = QN87,
-    CurrentPainMedicine = QN88,
-    EverHallucinogenicDrugs = QN89,
-    NoSportsDrinks = QN90,
-    NoDrinksWater = QN91,
-    ExcerciseMuscles = QN92,
-    CovidNotGoodMentalHealth = QN93,
-    CovidAdultLostJob = QN94,
-    Sunburn = QN95,
-    FeelCloseToPeople = QN96,
-    ParentalMonitoring = QN97,
-    DifficultyConcentrating = QN98,
-    EnglishProficiency = QN99
+    # NoMilk = QN75,
+    NoBreakfast = QN75,
+    PhysicalActivity = QN76,
+    # ThreeOrMoreHoursTV = QN78,
+    AttendedPEClass = QN77,
+    SportsTeam = QN78,
+    ConcussionSports = QN79,
+    SocialMedia = QN80,
+    HIVTested = QN81,
+    STDTested = QN82,
+    DentistVisit = QN83,
+    NotGoodMentalHealth = QN84,
+    EightOrMoreHoursSleep = QN85,
+    Homelessness = QN86,
+    GradesSchool = QN87,
+    SexualAbuseByOlderPerson = QN88,
+    ParentalEmotionalAbuse = QN89,
+    ParentalPhysicalAbuse = QN90,
+    ParentalDomesticViolence = QN91,
+    CurrentMisusePainMedicine = QN92,
+    EverHallucinogenicDrugs = QN93,
+    AskedForConsent = QN94,
+    NoSportsDrinks = QN95,
+    NoDrinksWater = QN96,
+    ExcerciseMuscles = QN97,
+    Sunburn = QN98,
+    AdultMeetingBasicNeeds = QN99,
+    ParentSubstanceUse = QN100,
+    ParentMentalIllness = QN101,
+    ParentIncarceration = QN102,
+    SchoolConnectedness = QN103,
+    ParentalMonitoring = QN104,
+    UnfairDisciplineAtSchool = QN105,
+    DifficultyConcentrating = QN106,
+    EnglishProficiency = QN107
   ) |>
   select(-starts_with("qn")) |>
-  mutate(across(c(HispanicLatino, SeatBealtUse:EnglishProficiency), factor))
+  mutate(across(c(HispanicLatino, SeatBeltUse:EnglishProficiency), factor))
 
 
-usethis::use_data(clean_yrbs_2021, overwrite = TRUE)
-# 17232 X 102
+usethis::use_data(clean_yrbs_2023, overwrite = TRUE)
+# 20103 X 110

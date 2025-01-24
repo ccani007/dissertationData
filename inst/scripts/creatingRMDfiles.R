@@ -17,3 +17,7 @@ usethis::use_data(raw2019, overwrite = TRUE)
 raw2021 <- read_sav("inst/extData/yrbs2021.dat.sav")
 
 usethis::use_data(raw2021, overwrite = TRUE)
+
+raw2023 <- read_sav("inst/extData/yrbs2023.sav")
+
+usethis::use_data(raw2023, overwrite = TRUE)
