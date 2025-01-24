@@ -1,6 +1,6 @@
 Package: dissertationData
-Title: Cleaned and combined YRBS 2017, 2019 and 2021 data 
-Version: 1.1.0
+Title: Cleaned and combined YRBS 2017, 2019, 2021, and 2023 data 
+Version: 1.2.0
 Authors@R: 
       person(
         given  = "Catalina",
@@ -11,7 +11,7 @@ Authors@R:
       )
 Description: 
      This package contains cleaned datasets from the Youth Risk Behavior 
-     Surveillance System (YRBS) for the years 2019 and 2021. The main purpose 
+     Surveillance System (YRBS) for the years 2019 and 2023. The main purpose 
      of this project is to facilitate research related to suicide ideation and 
      attempts among adolescents for the author's dissertation. 
 License: CC0
