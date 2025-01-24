@@ -28,29 +28,25 @@
 #' @importFrom dplyr filter
 #' @export
 
-
-# Define the function to add a binary sum column with a dynamic row sum column name
 create_from_rowsums <- function(df, col_names, risk_behavior) {
   # Step 1: Convert factors within the specified columns to numeric
-  df <- df %>%
-    mutate(across(all_of(col_names), ~ as.numeric(as.character(.))))
+  df[col_names] <- lapply(df[col_names], function(x) as.numeric(as.character(x)))
 
-  # Create the name for the row sum column based on the input column names
+  # Step 2: Create the name for the row sum column
   row_sum_col_name <- paste("row_sum", paste(col_names, collapse = "_to_"), sep = "_")
 
-  # Step 2: Add a column with the row sums of the specified columns, handling NA values
-  df <- df %>%
-    mutate(!!row_sum_col_name := ifelse(rowSums(!is.na(select(., all_of(col_names)))) == 0, NA,
-                                        rowSums(select(., all_of(col_names)), na.rm = TRUE)))
+  # Step 3: Add a column with the row sums of the specified columns, handling NA values
+  df[[row_sum_col_name]] <- ifelse(
+    rowSums(!is.na(df[col_names])) == 0,
+    NA,
+    rowSums(df[col_names], na.rm = TRUE)
+  )
 
-  # Step 3: Add a binary column based on the row sums
-  binary_col_name <- risk_behavior
-  df <- df %>%
-    mutate(!!binary_col_name := ifelse(!!sym(row_sum_col_name) >= 1, 1, 0))
+  # Step 4: Add a binary column based on the row sums
+  df[[risk_behavior]] <- ifelse(df[[row_sum_col_name]] >= 1, 1, 0)
 
-  # Step 4: Remove the original columns used for row sums and the row sum column
-  df <- df %>%
-    select(-all_of(col_names), -!!sym(row_sum_col_name))
+  # Step 5: Remove the original columns used for row sums and the row sum column
+  df <- df[, !colnames(df) %in% c(col_names, row_sum_col_name)]
 
   return(df)
 }

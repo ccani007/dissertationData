@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_risk_behaviors.R
 \name{plot_risk_behaviors}
 \alias{plot_risk_behaviors}
-\title{Plot Risk Behaviors Related to Suicide Attempts}
+\title{Plot Risk Behaviors}
 \usage{
 plot_risk_behaviors(
   data,
@@ -13,24 +13,19 @@ plot_risk_behaviors(
 )
 }
 \arguments{
-\item{data}{A dataframe containing the variables of interest.}
+\item{data}{A data frame containing the variables for plotting.}
 
-\item{behavior_vars}{A character vector of column names in 'data' representing
-different risk behaviors.}
+\item{behavior_vars}{A vector of column names for risk behavior variables.}
 
-\item{suicide_var}{The name of the column in 'data' that indicates suicide
-attempt status.}
+\item{suicide_var}{The column name for the suicide attempt variable.}
 
-\item{plot_title}{Title for the plot.}
+\item{plot_title}{The title of the plot.}
 
-\item{fill_colors}{A character vector of length 2 providing the colors to use
-for the bars in the plot. Default colors are set to "#24bccb" and "#4e2d86".}
+\item{fill_colors}{A character vector of colors for the plot fill.}
 }
 \value{
-A ggplot object representing the bar plot.
+A ggplot object.
 }
 \description{
-This function takes a dataset and produces a bar plot that visualizes the
-proportion of responses for different risk behavior variables in relation to
-suicide attempt status. It allows customization of plot titles and fill colors.
+Plot Risk Behaviors
 }

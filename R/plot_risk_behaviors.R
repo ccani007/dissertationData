@@ -1,67 +1,63 @@
-#' Plot Risk Behaviors Related to Suicide Attempts
+#' Plot Risk Behaviors
 #'
-#' This function takes a dataset and produces a bar plot that visualizes the
-#' proportion of responses for different risk behavior variables in relation to
-#' suicide attempt status. It allows customization of plot titles and fill colors.
+#' @param data A data frame containing the variables for plotting.
+#' @param behavior_vars A vector of column names for risk behavior variables.
+#' @param suicide_var The column name for the suicide attempt variable.
+#' @param plot_title The title of the plot.
+#' @param fill_colors A character vector of colors for the plot fill.
 #'
-#' @param data A dataframe containing the variables of interest.
-#' @param behavior_vars A character vector of column names in 'data' representing
-#'        different risk behaviors.
-#' @param suicide_var The name of the column in 'data' that indicates suicide
-#'        attempt status.
-#' @param plot_title Title for the plot.
-#' @param fill_colors A character vector of length 2 providing the colors to use
-#'        for the bars in the plot. Default colors are set to "#24bccb" and "#4e2d86".
-#'
-#' @return A ggplot object representing the bar plot.
-#'
-#'
+#' @return A ggplot object.
+#' @importFrom dplyr select mutate summarize group_by all_of
+#' @importFrom tidyr pivot_longer drop_na
+#' @importFrom ggplot2 ggplot aes geom_bar geom_text labs scale_fill_manual theme_classic theme element_blank element_text position_dodge
+#' @importFrom stringr str_wrap
+#' @importFrom rlang .data
 #' @export
 plot_risk_behaviors <- function(data,
                                 behavior_vars,
                                 suicide_var,
                                 plot_title,
                                 fill_colors = c("#24bccb", "#4e2d86")) {
-
-
   data %>%
-    select(all_of(c(behavior_vars, suicide_var))) %>%
-    drop_na() %>%
-    pivot_longer(
-      cols = all_of(behavior_vars), # Columns to pivot into longer format
-      names_to = "Variable",        # New column name for 'Variable'
-      values_to = "Answer"          # New column name for 'Answer'
+    dplyr::select(dplyr::all_of(c(behavior_vars, suicide_var))) %>%
+    tidyr::drop_na() %>%
+    tidyr::pivot_longer(
+      cols = dplyr::all_of(behavior_vars), # Columns to pivot into longer format
+      names_to = "Variable",              # New column name for 'Variable'
+      values_to = "Answer"                # New column name for 'Answer'
     ) %>%
-    mutate(
-      Answer = as.numeric(as.character("Answer")),
-      SuicideAttempts = as.factor(.[[suicide_var]])
+    dplyr::mutate(
+      Answer = as.numeric(as.character(.data$Answer)),
+      SuicideAttempts = as.factor(.data[[suicide_var]])
     ) %>%
-    summarize(mean = mean(Answer, na.rm = TRUE), .by = c(Variable, SuicideAttempts)) %>%
-    mutate(
+    dplyr::group_by(.data$Variable, .data$SuicideAttempts) %>%
+    dplyr::summarize(mean = mean(.data$Answer, na.rm = TRUE), .groups = "drop") %>%
+    dplyr::mutate(
       mean = mean * 100,
-      Variable = str_wrap(Variable, 15)
+      Variable = stringr::str_wrap(.data$Variable, 15)
     ) %>%
-    ggplot(aes(x = Variable, y = mean, group = SuicideAttempts, fill = SuicideAttempts)) +
-    geom_bar(position = "dodge", stat = "identity") +
-    geom_text(
-      aes(label = paste0(sprintf("%.1f", mean), "%")),
-      position = position_dodge(width = 0.9),
+    ggplot2::ggplot(ggplot2::aes(x = .data$Variable, y = .data$mean, group = .data$SuicideAttempts, fill = .data$SuicideAttempts)) +
+    ggplot2::geom_bar(position = "dodge", stat = "identity") +
+    ggplot2::geom_text(
+      ggplot2::aes(label = paste0(sprintf("%.1f", .data$mean), "%")),
+      position = ggplot2::position_dodge(width = 0.9),
       vjust = -0.5,
       size = 3
     ) +
-    labs(
+    ggplot2::labs(
       title = plot_title,
       x = "",
       y = "Proportion",
       fill = "Suicide Attempt Status"
     ) +
-    scale_fill_manual(values = fill_colors, labels = c("Not Attempted", "Attempted")) +
-    theme_classic() +
-    theme(
+    ggplot2::scale_fill_manual(values = fill_colors, labels = c("Not Attempted", "Attempted")) +
+    ggplot2::theme_classic() +
+    ggplot2::theme(
       legend.position = "top",
-      axis.title.y = element_blank(),
-      axis.text.y = element_blank(),
-      axis.ticks.y = element_blank(),
-      axis.text.x = element_text(angle = 45, hjust = 1)
+      axis.title.y = ggplot2::element_blank(),
+      axis.text.y = ggplot2::element_blank(),
+      axis.ticks.y = ggplot2::element_blank(),
+      axis.text.x = ggplot2::element_text(angle = 45, hjust = 1)
     )
 }
+

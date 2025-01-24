@@ -4,9 +4,9 @@
 \name{dissertationData-package}
 \alias{dissertationData}
 \alias{dissertationData-package}
-\title{dissertationData: Cleaned and combined YRBS 2017, 2019 and 2021 data}
+\title{dissertationData: Cleaned and combined YRBS 2017, 2019, 2021, and 2023 data}
 \description{
-This package contains cleaned datasets from the Youth Risk Behavior Surveillance System (YRBS) for the years 2019 and 2021. The main purpose of this project is to facilitate research related to suicide ideation and attempts among adolescents for the author's dissertation.
+This package contains cleaned datasets from the Youth Risk Behavior Surveillance System (YRBS) for the years 2019 and 2023. The main purpose of this project is to facilitate research related to suicide ideation and attempts among adolescents for the author's dissertation.
 }
 \author{
 \strong{Maintainer}: Catalina Cañizares \email{ccani007@fiu.edu} (\href{https://orcid.org/0000-0002-6854-5205}{ORCID})

@@ -17,18 +17,18 @@ markedly to the leading causes of death, disability, and social problems
 among youth and adults in the United States.
 These behaviors, often include:
 
-\describe{
 Please refer to the documentation provided in the 2017 National
 YRBS Data Users Guide.
+
+These broad categories include:
 \itemize{
-\item{Behaviors that contribute to unintentional injuries and violence}
-\item{Sexual behaviors that contribute to unintended pregnancy and
-sexually transmitted diseases, including HIV infection}
-\item{Alcohol and other drug use}
-\item{Tobacco use}
-\item{Unhealthy dietary behaviors}
-\item{Inadequate physical activity}
-}
+\item Behaviors that contribute to unintentional injuries and violence
+\item Sexual behaviors that contribute to unintended pregnancy and
+sexually transmitted diseases, including HIV infection
+\item Alcohol and other drug use
+\item Tobacco use
+\item Unhealthy dietary behaviors
+\item Inadequate physical activity
 }
 }
 \details{
