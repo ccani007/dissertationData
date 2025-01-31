@@ -1,6 +1,20 @@
 
 # dissertationData 1.2.0
 
+## Date 01/30/2025
+- **A day to remember**
+Today, the **CDC's official website** holding all the **YRBS datasets** was 
+taken down.  
+
+The scientific community is rapidly working to recover the data, and this
+package serves as a **recovery repository**! However, I cannot do this alone,
+so I have invited **Francisco Cardozo** as a coauthor of the package. 
+Together, we will **maintain the package, update its functionalities, and continue advocating for public data access.**  
+
+
+**Welcome, Francisco! 🎉**  
+
+
 ## Date 01/24/2025
 - **Adding 2023 YRBS Data set**
 
