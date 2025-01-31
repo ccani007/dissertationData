@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Cleaned and combined YRBS 2017, 2019, 2021, and 2023 data">
-<meta property="og:description" content="This package contains cleaned datasets from the Youth Risk Behavior Surveillance System (YRBS) for the years 2019 and 2023. The main purpose of this project is to facilitate research related to suicide ideation and attempts among adolescents for the author's dissertation.">
+<meta property="og:description" content="This package contains cleaned datasets from the Youth Risk Behavior Surveillance System (YRBS) for the years 2019 and 2023. The central goal of this project is to facilitate research on adolescent suicide attempts, initially for my (Catalina) dissertation, but now for anyone committed to **evidence-based decision-making**!">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -61,56 +61,60 @@
 
 
 <div class="section level1">
-<div class="page-header"><h1 id="dissertationdata-a-public-yrbs-data-repository">
-<strong>dissertationData: A PUBLIC YRBS Data Repository</strong><a class="anchor" aria-label="anchor" href="#dissertationdata-a-public-yrbs-data-repository"></a>
+<div class="page-header"><h1 id="dissertationdata-a-public-yrbs-data-repository-">
+<strong>dissertationData: A PUBLIC YRBS Data Repository</strong> 📊<a class="anchor" aria-label="anchor" href="#dissertationdata-a-public-yrbs-data-repository-"></a>
 </h1></div>
 <blockquote>
-<p><span class="emoji" data-emoji="warning">⚠️</span> As public health data is increasingly restricted and erased from open access under current policies, this repository is dedicated to preserving the <strong>Youth Risk Behavior Surveillance System (YRBS)</strong> data from the <strong>Centers for Disease Control and Prevention (CDC)</strong>. The YRBS is a crucial national survey tracking adolescent health behaviors, including substance use, mental health, physical activity, and experiences of violence. I am working to compile as many years of YRBS data as possible and will be updating this repository daily. Ensuring continued access to this dataset is essential for research, policy-making, and advocacy efforts aimed at improving adolescent health and well-being, especially at a time when transparency and evidence-based decision-making are under threat. <strong>Stay strong!</strong></p>
+<p>[!WARNING] As public health data is increasingly restricted and erased from open access under current policies, this repository is dedicated to preserving the <strong>Youth Risk Behavior Surveillance System (YRBS)</strong> data from the <strong>Centers for Disease Control and Prevention (CDC)</strong>. The YRBS is a crucial national survey tracking adolescent health behaviors, including substance use, mental health, physical activity, and experiences of violence. I am working to compile as many years of YRBS data as possible and will be updating this repository daily. Ensuring continued access to this dataset is essential for research, policy-making, and advocacy efforts aimed at improving adolescent health and well-being, especially at a time when transparency and evidence-based decision-making are under threat. <strong>Stay strong!</strong> 💪</p>
 </blockquote>
 <div class="section level2">
-<h2 id="description">
-<strong>Description</strong>:<a class="anchor" aria-label="anchor" href="#description"></a>
+<h2 id="description-">
+<strong>Description</strong>: 📝<a class="anchor" aria-label="anchor" href="#description-"></a>
 </h2>
-<p>Welcome to the <code>dissertationData</code> package!</p>
-<p>This package contains cleaned datasets from the <strong>Youth Risk Behavior Surveillance System (YRBS)</strong> for the years <strong>2017, 2019, 2021, and 2023</strong>. The central goal of this project is to facilitate research on adolescent suicide attempts, initially for my dissertation, but now for anyone committed to <strong>evidence-based decision-making</strong>!</p>
-<p>Additionally, it is designed to <strong>provide an immense time-saving</strong> advantage for future researchers. With just a straightforward <code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code> function call, you can easily access the raw, cleaned, or combined versions of the dataset within your R environment.</p>
-<p><strong>Notes</strong>: The progress notes are here <a href="https://github.com/ccani007/dissertationData/blob/main/NEWS.md" class="external-link">NEWS.md</a>.</p>
-<p><strong>Data Manuals:</strong> You can find the user guide manuals <a href="https://github.com/ccani007/dissertationData/tree/main/inst/manuals" class="external-link">here</a></p>
+<p>Welcome to the <code>dissertationData</code> package! 🎉</p>
+<p>This package contains cleaned datasets from the <strong>Youth Risk Behavior Surveillance System (YRBS)</strong> for the years <strong>2017, 2019, 2021, and 2023</strong>. The central goal of this project is to facilitate research on adolescent suicide attempts, initially for my dissertation, but now for anyone committed to <strong>evidence-based decision-making</strong>! 🎯</p>
+<p>Additionally, it is designed to <strong>provide an immense time-saving</strong> advantage for future researchers. With just a straightforward <code><a href="https://rdrr.io/r/utils/data.html" class="external-link">data()</a></code> function call, you can easily access the raw, cleaned, or combined versions of the dataset within your R environment. ⚡</p>
+<p><strong>Notes</strong>: The progress notes are here <a href="https://github.com/ccani007/dissertationData/blob/main/NEWS.md" class="external-link">NEWS.md</a> 📰</p>
+<p><strong>Data Manuals:</strong> You can find the user guide manuals <a href="https://github.com/ccani007/dissertationData/tree/main/inst/manuals" class="external-link">here</a> 📚</p>
 </div>
 <div class="section level2">
-<h2 id="installing-my-package">Installing my Package<a class="anchor" aria-label="anchor" href="#installing-my-package"></a>
+<h2 id="installing-my-package-">Installing my Package 💻<a class="anchor" aria-label="anchor" href="#installing-my-package-"></a>
 </h2>
+<p>First, if you haven’t installed <code>devtools</code> yet, install it from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span></code></pre></div>
+<p>Then, install the package from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"ccani007/dissertationData"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="raw-data">Raw Data<a class="anchor" aria-label="anchor" href="#raw-data"></a>
+<h2 id="raw-data-">Raw Data 📊<a class="anchor" aria-label="anchor" href="#raw-data-"></a>
 </h2>
 <blockquote>
-<p><span class="emoji" data-emoji="warning">⚠️</span> <em>You can find all of this information on the following website: <a href="https://www.cdc.gov/healthyyouth/data/yrbs/data.htm" class="external-link">CDC YRBS Data</a>.</em><br><em>This is no longer true as of January 30, 2025.</em></p>
+<p>[!NOTE] <em>You can find all of this information on the following website: <a href="https://www.cdc.gov/healthyyouth/data/yrbs/data.htm" class="external-link">CDC YRBS Data</a>.</em><br><em>This is no longer true as of January 30, 2025.</em></p>
 </blockquote>
 <p>YRBS is a biennial survey conducted by the Centers for Disease Control and Prevention (CDC) to monitor health-risk behaviors among youth in the United States. The dataset provides valuable information on various behaviors that contribute to the leading causes of death and disability among adolescents.</p>
 <p>The YRBS 2017, 2019 and 2021 dataset includes a wide range of topics, such as:</p>
 <ul>
-<li><p>Behavioral Risk Factors: Information related to health-risk behaviors, including but not limited to tobacco use, alcohol and drug use, sexual activity, unhealthy dietary habits, and lack of physical activity.</p></li>
-<li><p>Mental Health and Suicide-Related Data: Data pertaining to mental health issues, depression, self-harm, suicide ideation, and suicide attempts among young individuals.</p></li>
-<li><p>Demographic Information: Basic demographic details such as age, gender, race/ethnicity, and grade level.</p></li>
-<li><p>School-Related Factors: Data related to school attendance, academic performance, and other school-related behaviors.</p></li>
-<li><p>Violence and Safety: Information about experiences with violence, bullying, and safety concerns.</p></li>
-<li><p>Protective Factors: Data on factors that promote positive youth development and well-being.</p></li>
+<li><p>Behavioral Risk Factors: 🚬 Information related to health-risk behaviors, including but not limited to tobacco use, alcohol and drug use, sexual activity, unhealthy dietary habits, and lack of physical activity.</p></li>
+<li><p>Mental Health and Suicide-Related Data: 🧠 Data pertaining to mental health issues, depression, self-harm, suicide ideation, and suicide attempts among young individuals.</p></li>
+<li><p>Demographic Information: 👥 Basic demographic details such as age, gender, race/ethnicity, and grade level.</p></li>
+<li><p>School-Related Factors: 🏫 Data related to school attendance, academic performance, and other school-related behaviors.</p></li>
+<li><p>Violence and Safety: 🛡️ Information about experiences with violence, bullying, and safety concerns.</p></li>
+<li><p>Protective Factors: 🛡️ Data on factors that promote positive youth development and well-being.</p></li>
 </ul>
 </div>
 <div class="section level2">
-<h2 id="license">License:<a class="anchor" aria-label="anchor" href="#license"></a>
+<h2 id="license-️">License: ⚖️<a class="anchor" aria-label="anchor" href="#license-%EF%B8%8F"></a>
 </h2>
 <p>The project is currently under <a href="https://choosealicense.com/licenses/cc0-1.0/" class="external-link">CC0 license</a>. Please refer to the LICENSE file for more details.</p>
 </div>
 <div class="section level2">
-<h2 id="ordered-analysis-pipeline-workflow-to-reproduce-my-work">Ordered Analysis Pipeline/ Workflow to Reproduce my Work<a class="anchor" aria-label="anchor" href="#ordered-analysis-pipeline-workflow-to-reproduce-my-work"></a>
+<h2 id="ordered-analysis-pipeline-workflow-to-reproduce-my-work-">Ordered Analysis Pipeline/ Workflow to Reproduce my Work 🔄<a class="anchor" aria-label="anchor" href="#ordered-analysis-pipeline-workflow-to-reproduce-my-work-"></a>
 </h2>
 <blockquote>
-<p><span class="emoji" data-emoji="warning">⚠️</span> <strong>You could have reproduced my work before January 30, 2025.</strong></p>
+<p>[!IMPORTANT] <strong>You could have reproduced my work before January 30, 2025.</strong></p>
 </blockquote>
 <p>Run these file in order from raw processing to publication.</p>
 <p>1.inst/extData/2017XXH_SPSS.sps, 2019XXH-SPSS.sps, 2021XXH-SPSS.sps</p>
@@ -142,6 +146,7 @@
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Catalina Cañizares <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-6854-5205" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Francisco Cardozo <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0002-1925-4954" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
@@ -158,7 +163,7 @@
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by Catalina Cañizares.</p>
+<p>Developed by Catalina Cañizares, Francisco Cardozo.</p>
 </div>
 
 <div class="pkgdown">
