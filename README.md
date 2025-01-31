@@ -4,7 +4,7 @@
 
 # dissertationData: A PUBLIC YRBS data repository 
 
-> :warning: In a time when public data is increasingly being removed from open access, this repository is dedicated to preserving the Youth Risk Behavior Surveillance System (YRBS) data from the Centers for Disease Control and Prevention (CDC). The YRBS is a critical national survey that monitors health-related behaviors among adolescents, including substance use, mental health, physical activity, and experiences of violence.
+> :warning: As public health data is increasingly restricted and erased from open access under current policies, this repository is dedicated to preserving the *Youth Risk Behavior Surveillance System (YRBS)* data from the *Centers for Disease Control and Prevention (CDC)*. The YRBS is a crucial national survey tracking adolescent health behaviors, including substance use, mental health, physical activity, and experiences of violence. I am working to compile as many years of YRBS data as possible and will be updating this repository daily. Ensuring continued access to this dataset is essential for research, policy-making, and advocacy efforts aimed at improving adolescent health and well-being, especially at a time when transparency and evidence-based decision-making are under threat. *Stay strong!*
 
 I am actively working to collect as many years of YRBS data as possible and will be updating this repository daily with what I can retrieve. Ensuring continued access to this valuable dataset is essential for research, policy-making, and advocacy efforts aimed at improving adolescent health and well-being.
 
