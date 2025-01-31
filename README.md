@@ -4,17 +4,14 @@
 
 # dissertationData: A PUBLIC YRBS data repository 
 
-> :warning: As public health data is increasingly restricted and erased from open access under current policies, this repository is dedicated to preserving the *Youth Risk Behavior Surveillance System (YRBS)* data from the *Centers for Disease Control and Prevention (CDC)*. The YRBS is a crucial national survey tracking adolescent health behaviors, including substance use, mental health, physical activity, and experiences of violence. I am working to compile as many years of YRBS data as possible and will be updating this repository daily. Ensuring continued access to this dataset is essential for research, policy-making, and advocacy efforts aimed at improving adolescent health and well-being, especially at a time when transparency and evidence-based decision-making are under threat. *Stay strong!*
+> :warning: As public health data is increasingly restricted and erased from open access under current policies, this repository is dedicated to preserving the **Youth Risk Behavior Surveillance System (YRBS)** data from the **Centers for Disease Control and Prevention (CDC)**. The YRBS is a crucial national survey tracking adolescent health behaviors, including substance use, mental health, physical activity, and experiences of violence. I am working to compile as many years of YRBS data as possible and will be updating this repository daily. Ensuring continued access to this dataset is essential for research, policy-making, and advocacy efforts aimed at improving adolescent health and well-being, especially at a time when transparency and evidence-based decision-making are under threat. **Stay strong!**
 
-I am actively working to collect as many years of YRBS data as possible and will be updating this repository daily with what I can retrieve. Ensuring continued access to this valuable dataset is essential for research, policy-making, and advocacy efforts aimed at improving adolescent health and well-being.
-
-Stay strong!
 
 ## **Description**: 
 
 Welcome to the `dissertationData` package!
 
-This package contains cleaned datasets from the Youth Risk Behavior Surveillance System (YRBS) for the years 2017, 2019, 2021, 2023. The central aim of this project is to streamline research on adolescent suicide attempts, particularly for my dissertation. 
+This package contains cleaned datasets from the **Youth Risk Behavior Surveillance System (YRBS)** for the years **2017, 2019, 2021, and 2023**. The central goal of this project is to facilitate research on adolescent suicide attempts, initially for my dissertation, but now for anyone committed to **evidence-based decision-making**!
 
 Additionally, it is designed to **provide an immense time-saving** advantage for future researchers. With just a straightforward `data()` function call, you can easily access the raw, cleaned, or combined versions of the dataset within your R environment.
 
@@ -28,7 +25,9 @@ install_github("ccani007/dissertationData")
 
 ## Raw Data
 
-*You can find all of this information on the following website. [website](https://www.cdc.gov/healthyyouth/data/yrbs/data.htm)*
+> :warning: *You can find all of this information on the following website: [CDC YRBS Data](https://www.cdc.gov/healthyyouth/data/yrbs/data.htm).*  
+> *This is no longer true as of January 30, 2025.*
+
 
 YRBS is a biennial survey conducted by the Centers for Disease Control and Prevention (CDC) to monitor health-risk behaviors among youth in the United States. The dataset provides valuable information on various behaviors that contribute to the leading causes of death and disability among adolescents.
 
@@ -53,6 +52,8 @@ The project is currently under [CC0 license](https://choosealicense.com/licenses
 
 
 ## Ordered Analysis Pipeline/ Workflow to Reproduce my Work
+
+> :warning: **You could have reproduced my work before January 30, 2025.**
 
 Run these file in order from raw processing to publication.
 
