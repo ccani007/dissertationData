@@ -9,7 +9,7 @@
 
 Welcome to the `dissertationData` package!
 
-This package contains cleaned datasets from the Youth Risk Behavior Surveillance System (YRBS) for the years 2017, 2019 and 2021. The central aim of this project is to streamline research on adolescent suicide attempts, particularly for my dissertation. 
+This package contains cleaned datasets from the Youth Risk Behavior Surveillance System (YRBS) for the years 2017, 2019, 2021, 2023. The central aim of this project is to streamline research on adolescent suicide attempts, particularly for my dissertation. 
 
 Additionally, it is designed to **provide an immense time-saving** advantage for future researchers. With just a straightforward `data()` function call, you can easily access the raw, cleaned, or combined versions of the dataset within your R environment.
 
