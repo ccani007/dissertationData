@@ -2,18 +2,27 @@ Package: dissertationData
 Title: Cleaned and combined YRBS 2017, 2019, 2021, and 2023 data 
 Version: 1.2.0
 Authors@R: 
+    c(
       person(
         given  = "Catalina",
         family = "Cañizares", 
-        email = "ccani007@fiu.edu", 
+        email = "cc9082@nyu.edu", 
         role = c("aut", "cre"),
         comment = c(ORCID = "0000-0002-6854-5205")
-      )
+      ), 
+      person(
+        given  = "Francisco",
+        family = "Cardozo", 
+        email = "foc9@miami.edu", 
+        role = c("aut"),
+        comment = c(ORCID = "0000-0002-1925-4954")
+      ))
 Description: 
      This package contains cleaned datasets from the Youth Risk Behavior 
-     Surveillance System (YRBS) for the years 2019 and 2023. The main purpose 
-     of this project is to facilitate research related to suicide ideation and 
-     attempts among adolescents for the author's dissertation. 
+     Surveillance System (YRBS) for the years 2019 and 2023. The central goal
+     of this project is to facilitate research on adolescent suicide attempts,
+     initially for my (Catalina) dissertation, but now for anyone committed 
+     to **evidence-based decision-making**! 
 License: CC0
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
