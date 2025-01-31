@@ -18,7 +18,7 @@ Additionally, it is designed to **provide an immense time-saving** advantage for
 
 **Notes**: The progress notes are here [NEWS.md](https://github.com/ccani007/dissertationData/blob/main/NEWS.md).
 
-**Data Manuals:** You can find the user guide manuals[here](https://github.com/ccani007/dissertationData/tree/main/inst/manuals)
+**Data Manuals:** You can find the user guide manuals [here](https://github.com/ccani007/dissertationData/tree/main/inst/manuals)
 
 ## Installing my Package
 ```r
