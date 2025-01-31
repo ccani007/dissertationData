@@ -2,7 +2,6 @@
 [![R-CMD-check](https://github.com/ccani007/dissertationData/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ccani007/dissertationData/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
- (![GitHub all releases](https://img.shields.io/github/downloads/ccani007/dissertationData/total))
 
 # dissertationData: A PUBLIC YRBS data repository 
 
