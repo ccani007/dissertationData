@@ -2,9 +2,13 @@
 [![R-CMD-check](https://github.com/ccani007/dissertationData/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ccani007/dissertationData/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-# dissertationData
+# dissertationData: A PUBLIC YRBS data repository 
 
-> :warning: In a time when public data is increasingly being removed from open access, this repository is dedicated to preserving the YRBS data. I am working to collect as many years as possible and will be updating it daily with what I can retrieve. Stay strong!
+> :warning: In a time when public data is increasingly being removed from open access, this repository is dedicated to preserving the Youth Risk Behavior Surveillance System (YRBS) data from the Centers for Disease Control and Prevention (CDC). The YRBS is a critical national survey that monitors health-related behaviors among adolescents, including substance use, mental health, physical activity, and experiences of violence.
+
+I am actively working to collect as many years of YRBS data as possible and will be updating this repository daily with what I can retrieve. Ensuring continued access to this valuable dataset is essential for research, policy-making, and advocacy efforts aimed at improving adolescent health and well-being.
+
+Stay strong!
 
 ## **Description**: 
 
