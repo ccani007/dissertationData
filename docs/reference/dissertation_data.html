@@ -12,75 +12,189 @@ variables that are pertinent to the analysis of suicidality.
 For details on the exclusion criteria and a list of removed variables,
 refer to 'inst/scripts/creatingCompleteDataset.qmd'.
 NOTE: Missing data for SuicideAttempts
-
-This dataset exclusively comprises questions sourced from Appendix A of the
-YRBS 2017, 2019 and 2021, specifically focusing on the QN dichotomous variables.
+#' This dataset exclusively comprises questions sourced from Appendix A of the
+YRBS 2017, 2019, and 2021, specifically focusing on the QN dichotomous variables.
 For comprehensive information, please refer to the documentation
-provided in the 2017, 2019 and 2021 National YRBS Data Users Guide. In this dataset,
+provided in the 2017, 2019, and 2021 National YRBS Data Users Guide. In this dataset,
 each variable follows a binary pattern: a value of 1 indicates the
 presence of the specified behavior, while a value of 0 signifies its
 absence. For instance, with regard to Suicide Attempts, a value of 1
 signifies that adolescents responded affirmatively to having made
 suicide attempts, whereas 0 indicates a negative response.
-
+Variables in the dataset include:
 year
+Survey year (e.g., 2017, 2019, 2021).
+
 weight
+Weight variable for survey adjustment.
+
 Sex
+Participant's sex (Male/Female).
+
 Age
+Participant's age.
+
 Grade
+School grade (9th–12th).
+
 SexOrientation
+Sexual orientation of the participant.
+
 WeaponCarryingSchool
+Carrying a weapon on school property.
+
 GunCarrying
+Carrying a gun.
+
 UnsafeAtSchool
+Feeling unsafe at school.
+
 ThreatenedInSchool
+Being threatened at school.
+
 ForcedSexualIntercourse
+Having been forced into sexual intercourse.
+
 PhysicalDaitingViolence
+Experiencing physical dating violence.
+
 Bullying
+Being bullied.
+
 CyberBullying
+Being cyberbullied.
+
 Hopelessness
+Feeling hopeless for 2+ weeks.
+
 SuicideIdeation
+Considering suicide.
+
 SuicidePlan
+Making a suicide plan.
+
 SuicideAttempts
+Attempting suicide.
+
 CurrentlySmokingCigarette
+Currently smoking cigarettes.
+
 EverTriedVaping
+Ever tried vaping.
+
 CurrentlyVaping
+Currently vaping.
+
 CurrentlySmokelessTobacco
+Currently using smokeless tobacco.
+
 CurrentlySmokingCigar
+Currently smoking cigars.
+
 QuitTobbaco
+Attempted to quit tobacco use.
+
 FirstAlcoholBefore13
+Had first drink of alcohol before age 13.
+
 CurrentlyAlcohol
+Currently drinking alcohol.
+
 CurrentlyBingeDrinking
+Currently binge drinking.
+
 EverUsedMarihuana
+Ever used marijuana.
+
 FirstMarihuanaBefore13
+Used marijuana before age 13.
+
 CurrentlyUseMarihuana
+Currently using marijuana.
+
 EverUsedSyntheticMarihuana
+Ever used synthetic marijuana.
+
 PainMedicine
+Misusing prescription pain medicine.
+
 EverUsedInjectedIllegalDrug
+Ever injected illegal drugs.
+
 OfferedDrugsSchool
+Offered drugs on school property.
+
 EverHadSex
+Ever had sexual intercourse.
+
 SexBefore13
+Had sexual intercourse before age 13.
+
 Sex4OrMorePartners
+Had 4 or more sexual partners.
+
 SexuallyActive
+Currently sexually active.
+
 VeryOverweight
+Perceived as very overweight.
+
 NoSoda
+Does not drink soda.
+
 NoMilk
+Does not drink milk.
+
 NoBreakfast
+Does not eat breakfast.
+
 ThreeOrMoreHoursTV
+Spends 3+ hours watching TV.
+
 ThreeOrMoreHoursVideoGames
+Spends 3+ hours on video games.
+
 AttendedPEClass
+Attends physical education classes.
+
 ConcussionSports
+Experienced a concussion during sports.
+
 EightorMoreHoursSleep
+Gets 8+ hours of sleep.
+
 NoSportsDrinks
+Does not consume sports drinks.
+
 NoDrinksWater
+Does not drink water.
+
 DifficultyConcentrating
+Has difficulty concentrating.
+
 RaceEthnicity
-HardDrugsUse composite variable
-SportAndActivity composite variable
-RiskDrivingBehaviorsType label here
-SexualAbuse composite variable
-TriedCigarrete composite variable
-NoFruitOrVeggies composite variable
-PhysicalFights PhysicalFights
+Race/ethnicity of the participant.
+
+HardDrugsUse
+Composite variable for hard drug use.
+
+SportAndActivity
+Composite variable for sports and physical activities.
+
+RiskDrivingBehaviors
+Composite variable for risky driving behaviors.
+
+SexualAbuse
+Composite variable for sexual abuse.
+
+TriedCigarrete
+Composite variable for trying cigarettes.
+
+NoFruitOrVeggies
+Composite variable for not eating fruits or vegetables.
+
+PhysicalFights
+Involvement in physical fights.
 
 
 
@@ -141,75 +255,188 @@ variables that are pertinent to the analysis of suicidality.
 For details on the exclusion criteria and a list of removed variables,
 refer to 'inst/scripts/creatingCompleteDataset.qmd'.
 NOTE: Missing data for SuicideAttempts</p>
-<dl>
-This dataset exclusively comprises questions sourced from Appendix A of the
-YRBS 2017, 2019 and 2021, specifically focusing on the QN dichotomous variables.
+<p>#' This dataset exclusively comprises questions sourced from Appendix A of the
+YRBS 2017, 2019, and 2021, specifically focusing on the QN dichotomous variables.
 For comprehensive information, please refer to the documentation
-provided in the 2017, 2019 and 2021 National YRBS Data Users Guide. In this dataset,
+provided in the 2017, 2019, and 2021 National YRBS Data Users Guide. In this dataset,
 each variable follows a binary pattern: a value of 1 indicates the
 presence of the specified behavior, while a value of 0 signifies its
 absence. For instance, with regard to Suicide Attempts, a value of 1
 signifies that adolescents responded affirmatively to having made
-suicide attempts, whereas 0 indicates a negative response.
+suicide attempts, whereas 0 indicates a negative response.</p>
+<p>Variables in the dataset include:</p><dl><dt>year</dt>
+<dd><p>Survey year (e.g., 2017, 2019, 2021).</p></dd>
 
-year
-weight
-Sex
-Age
-Grade
-SexOrientation
-WeaponCarryingSchool
-GunCarrying
-UnsafeAtSchool
-ThreatenedInSchool
-ForcedSexualIntercourse
-PhysicalDaitingViolence
-Bullying
-CyberBullying
-Hopelessness
-SuicideIdeation
-SuicidePlan
-SuicideAttempts
-CurrentlySmokingCigarette
-EverTriedVaping
-CurrentlyVaping
-CurrentlySmokelessTobacco
-CurrentlySmokingCigar
-QuitTobbaco
-FirstAlcoholBefore13
-CurrentlyAlcohol
-CurrentlyBingeDrinking
-EverUsedMarihuana
-FirstMarihuanaBefore13
-CurrentlyUseMarihuana
-EverUsedSyntheticMarihuana
-PainMedicine
-EverUsedInjectedIllegalDrug
-OfferedDrugsSchool
-EverHadSex
-SexBefore13
-Sex4OrMorePartners
-SexuallyActive
-VeryOverweight
-NoSoda
-NoMilk
-NoBreakfast
-ThreeOrMoreHoursTV
-ThreeOrMoreHoursVideoGames
-AttendedPEClass
-ConcussionSports
-EightorMoreHoursSleep
-NoSportsDrinks
-NoDrinksWater
-DifficultyConcentrating
-RaceEthnicity
-HardDrugsUse composite variable
-SportAndActivity composite variable
-RiskDrivingBehaviorsType label here
-SexualAbuse composite variable
-TriedCigarrete composite variable
-NoFruitOrVeggies composite variable
-PhysicalFights PhysicalFights
+<dt>weight</dt>
+<dd><p>Weight variable for survey adjustment.</p></dd>
+
+<dt>Sex</dt>
+<dd><p>Participant's sex (Male/Female).</p></dd>
+
+<dt>Age</dt>
+<dd><p>Participant's age.</p></dd>
+
+<dt>Grade</dt>
+<dd><p>School grade (9th–12th).</p></dd>
+
+<dt>SexOrientation</dt>
+<dd><p>Sexual orientation of the participant.</p></dd>
+
+<dt>WeaponCarryingSchool</dt>
+<dd><p>Carrying a weapon on school property.</p></dd>
+
+<dt>GunCarrying</dt>
+<dd><p>Carrying a gun.</p></dd>
+
+<dt>UnsafeAtSchool</dt>
+<dd><p>Feeling unsafe at school.</p></dd>
+
+<dt>ThreatenedInSchool</dt>
+<dd><p>Being threatened at school.</p></dd>
+
+<dt>ForcedSexualIntercourse</dt>
+<dd><p>Having been forced into sexual intercourse.</p></dd>
+
+<dt>PhysicalDaitingViolence</dt>
+<dd><p>Experiencing physical dating violence.</p></dd>
+
+<dt>Bullying</dt>
+<dd><p>Being bullied.</p></dd>
+
+<dt>CyberBullying</dt>
+<dd><p>Being cyberbullied.</p></dd>
+
+<dt>Hopelessness</dt>
+<dd><p>Feeling hopeless for 2+ weeks.</p></dd>
+
+<dt>SuicideIdeation</dt>
+<dd><p>Considering suicide.</p></dd>
+
+<dt>SuicidePlan</dt>
+<dd><p>Making a suicide plan.</p></dd>
+
+<dt>SuicideAttempts</dt>
+<dd><p>Attempting suicide.</p></dd>
+
+<dt>CurrentlySmokingCigarette</dt>
+<dd><p>Currently smoking cigarettes.</p></dd>
+
+<dt>EverTriedVaping</dt>
+<dd><p>Ever tried vaping.</p></dd>
+
+<dt>CurrentlyVaping</dt>
+<dd><p>Currently vaping.</p></dd>
+
+<dt>CurrentlySmokelessTobacco</dt>
+<dd><p>Currently using smokeless tobacco.</p></dd>
+
+<dt>CurrentlySmokingCigar</dt>
+<dd><p>Currently smoking cigars.</p></dd>
+
+<dt>QuitTobbaco</dt>
+<dd><p>Attempted to quit tobacco use.</p></dd>
+
+<dt>FirstAlcoholBefore13</dt>
+<dd><p>Had first drink of alcohol before age 13.</p></dd>
+
+<dt>CurrentlyAlcohol</dt>
+<dd><p>Currently drinking alcohol.</p></dd>
+
+<dt>CurrentlyBingeDrinking</dt>
+<dd><p>Currently binge drinking.</p></dd>
+
+<dt>EverUsedMarihuana</dt>
+<dd><p>Ever used marijuana.</p></dd>
+
+<dt>FirstMarihuanaBefore13</dt>
+<dd><p>Used marijuana before age 13.</p></dd>
+
+<dt>CurrentlyUseMarihuana</dt>
+<dd><p>Currently using marijuana.</p></dd>
+
+<dt>EverUsedSyntheticMarihuana</dt>
+<dd><p>Ever used synthetic marijuana.</p></dd>
+
+<dt>PainMedicine</dt>
+<dd><p>Misusing prescription pain medicine.</p></dd>
+
+<dt>EverUsedInjectedIllegalDrug</dt>
+<dd><p>Ever injected illegal drugs.</p></dd>
+
+<dt>OfferedDrugsSchool</dt>
+<dd><p>Offered drugs on school property.</p></dd>
+
+<dt>EverHadSex</dt>
+<dd><p>Ever had sexual intercourse.</p></dd>
+
+<dt>SexBefore13</dt>
+<dd><p>Had sexual intercourse before age 13.</p></dd>
+
+<dt>Sex4OrMorePartners</dt>
+<dd><p>Had 4 or more sexual partners.</p></dd>
+
+<dt>SexuallyActive</dt>
+<dd><p>Currently sexually active.</p></dd>
+
+<dt>VeryOverweight</dt>
+<dd><p>Perceived as very overweight.</p></dd>
+
+<dt>NoSoda</dt>
+<dd><p>Does not drink soda.</p></dd>
+
+<dt>NoMilk</dt>
+<dd><p>Does not drink milk.</p></dd>
+
+<dt>NoBreakfast</dt>
+<dd><p>Does not eat breakfast.</p></dd>
+
+<dt>ThreeOrMoreHoursTV</dt>
+<dd><p>Spends 3+ hours watching TV.</p></dd>
+
+<dt>ThreeOrMoreHoursVideoGames</dt>
+<dd><p>Spends 3+ hours on video games.</p></dd>
+
+<dt>AttendedPEClass</dt>
+<dd><p>Attends physical education classes.</p></dd>
+
+<dt>ConcussionSports</dt>
+<dd><p>Experienced a concussion during sports.</p></dd>
+
+<dt>EightorMoreHoursSleep</dt>
+<dd><p>Gets 8+ hours of sleep.</p></dd>
+
+<dt>NoSportsDrinks</dt>
+<dd><p>Does not consume sports drinks.</p></dd>
+
+<dt>NoDrinksWater</dt>
+<dd><p>Does not drink water.</p></dd>
+
+<dt>DifficultyConcentrating</dt>
+<dd><p>Has difficulty concentrating.</p></dd>
+
+<dt>RaceEthnicity</dt>
+<dd><p>Race/ethnicity of the participant.</p></dd>
+
+<dt>HardDrugsUse</dt>
+<dd><p>Composite variable for hard drug use.</p></dd>
+
+<dt>SportAndActivity</dt>
+<dd><p>Composite variable for sports and physical activities.</p></dd>
+
+<dt>RiskDrivingBehaviors</dt>
+<dd><p>Composite variable for risky driving behaviors.</p></dd>
+
+<dt>SexualAbuse</dt>
+<dd><p>Composite variable for sexual abuse.</p></dd>
+
+<dt>TriedCigarrete</dt>
+<dd><p>Composite variable for trying cigarettes.</p></dd>
+
+<dt>NoFruitOrVeggies</dt>
+<dd><p>Composite variable for not eating fruits or vegetables.</p></dd>
+
+<dt>PhysicalFights</dt>
+<dd><p>Involvement in physical fights.</p></dd>
 
 
 </dl></div>
