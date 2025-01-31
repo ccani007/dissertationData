@@ -4,6 +4,7 @@
 
 # dissertationData
 
+> :warning: In a time when public data is increasingly being removed from open access, this repository is dedicated to preserving the YRBS data. I am working to collect as many years as possible and will be updating it daily with what I can retrieve. Stay strong!
 
 ## **Description**: 
 
