@@ -4,10 +4,17 @@
 \alias{get_raw_data}
 \title{Get Raw YRBS Data}
 \usage{
-get_raw_data(year, format = "spss", dest_dir = NULL, load = TRUE, ...)
+get_raw_data(
+  year,
+  format = "spss",
+  dest_dir = NULL,
+  load = TRUE,
+  simulate_interactive = interactive(),
+  ...
+)
 }
 \arguments{
-\item{year}{numeric. The year of YRBS data to retrieve (e.g., 2015)}
+\item{year}{numeric. The year of YRBS data to retrieve (e.g., 2017)}
 
 \item{format}{character. Format of the data file: "spss", "parquet", or "rds"}
 
@@ -15,6 +22,8 @@ get_raw_data(year, format = "spss", dest_dir = NULL, load = TRUE, ...)
 If not provided and load = FALSE, the file is copied to a default folder named "downloaded_raw_data".}
 
 \item{load}{logical. Whether to load the data into R (TRUE) or just return the file path / copy it (FALSE)}
+
+\item{simulate_interactive}{logical. \strong{(Internal)} For testing purposes only; overrides \code{interactive()} behavior.}
 
 \item{...}{Additional arguments passed to the respective reading functions.}
 }
