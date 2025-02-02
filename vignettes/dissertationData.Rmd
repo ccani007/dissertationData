@@ -1,0 +1,90 @@
+---
+title: "Getting Started with dissertationData"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with dissertationData}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+Welcome to **dissertationData**! This package provides access to data from the Youth Risk Behavior Survey (YRBS). Whether you are an experienced analyst or just getting started, this guide will show you how to load and work with the data easily.
+
+The data is available in different formats (such as SPSS), and the package offers a single function, `get_raw_data()`, that makes it simple to load the data for your chosen year.
+
+# Installation
+
+If you haven't installed the package yet, you can install it from CRAN (or GitHub if it's not on CRAN yet):
+
+```{r eval=FALSE}
+# Install from CRAN:
+# install.packages("dissertationData")
+
+# Or install from GitHub:
+# devtools::install_github("yourusername/dissertationData")
+```
+
+Once installed, load the package:
+
+```{r setup}
+library(dissertationData)
+```
+
+# Loading the Data
+
+The main function you'll use is `get_raw_data()`. This function lets you choose the year and format of the data you want to work with. For example, to load the YRBS data for 2017 (which is available in the package), you simply run:
+
+```{r}
+# Load the YRBS 2017 data as a data frame:
+yrbs2017 <- get_raw_data(2017)
+head(yrbs2017)
+```
+
+# Saving a Copy of the Raw Data File
+
+Sometimes you might want to have a copy of the raw data file on your computer. To do this, you can use the `dest_dir` parameter. For example, if you want to copy the 2017 data file to a folder named "my_data", run:
+
+```{r eval=FALSE}
+# Copy the YRBS 2017 SPSS file to a folder called "my_data"
+get_raw_data(2017, dest_dir = "my_data", load = FALSE)
+```
+
+If the folder "my_data" does not exist, the function will ask whether to create it. In non-interactive sessions, the folder is created automatically.
+
+# Choosing a Data Format
+
+By default, the data is in SPSS format. If you prefer to work with a different format (for example, Parquet), you can use the format argument:
+
+```{r eval=FALSE}
+# Load the YRBS 2017 data in Parquet format (if available)
+yrbs2017_parquet <- get_raw_data(2017, format = "parquet")
+head(yrbs2017_parquet)
+```
+
+Note that while the package currently contains the SPSS files (which have built-in labels), future updates might include other formats.
+
+# Summary
+
+In this vignette we covered:
+
+* Installing and loading the package
+* Using `get_raw_data()` to load YRBS data for a given year
+* Saving a copy of the raw data file to your computer
+* Choosing different data formats
+* Understanding the error messages when an invalid year is used
+
+The goal of dissertationData is to simplify the process of accessing and working with YRBS data. We hope this guide helps you get started quickly and confidently.
+
+If you have any questions or run into issues, please refer to the package documentation or contact the package maintainer.
+
+Happy analyzing!
