@@ -36,9 +36,13 @@ Depends:
 LazyData: true
 LazyDataCompression: xz
 Imports: 
+    arrow,
+    cli,
+    haven,
     magrittr,
     rlang
 Suggests: 
     covr,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    withr
 Config/testthat/edition: 3

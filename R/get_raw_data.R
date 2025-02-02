@@ -1,10 +1,11 @@
 #' Get Raw YRBS Data
 #'
-#' @param year numeric. The year of YRBS data to retrieve (e.g., 2015)
+#' @param year numeric. The year of YRBS data to retrieve (e.g., 2017)
 #' @param format character. Format of the data file: "spss", "parquet", or "rds"
 #' @param dest_dir character. Optional destination directory to copy the file to.
 #'   If not provided and load = FALSE, the file is copied to a default folder named "downloaded_raw_data".
 #' @param load logical. Whether to load the data into R (TRUE) or just return the file path / copy it (FALSE)
+#' @param simulate_interactive logical. (Undocumented) For testing only. Overrides interactive() behavior.
 #' @param ... Additional arguments passed to the respective reading functions.
 #'
 #' @return Depending on parameters:
@@ -14,11 +15,18 @@
 #'
 #' @importFrom haven read_sav
 #' @importFrom arrow read_parquet
+#' @import cli
 #' @export
-get_raw_data <- function(year, format = "spss", dest_dir = NULL, load = TRUE, ...) {
-  # Input validation
-  if (!is.numeric(year) || year < 1991) {
-    stop("Year must be a numeric value >= 1991")
+get_raw_data <- function(year, 
+                         format = "spss", 
+                         dest_dir = NULL, 
+                         load = TRUE, 
+                         simulate_interactive = interactive(), 
+                         ...) {
+  # Validate year against allowed values (include 2015 as well)
+  allowed_years <- c(2015, 2017, 2019, 2021, 2023)
+  if (!is.numeric(year) || !(year %in% allowed_years)) {
+    cli::cli_abort("Years available are 2015, 2017, 2019, 2021, 2023")
   }
   
   format <- match.arg(format, choices = c("spss", "parquet", "rds"))
@@ -34,11 +42,11 @@ get_raw_data <- function(year, format = "spss", dest_dir = NULL, load = TRUE, ..
   
   # Debug information if file not found
   if (file_path == "") {
-    message("Debug info:")
-    message("- Looking for file: ", file_name)
-    message("- Package root: ", system.file(package = "dissertationData"))
-    message("- Expected path: ", file.path(system.file(package = "dissertationData"), "extdata", file_name))
-    stop("Dataset for year ", year, " not found in ", format, " format.")
+    cli::cli_alert_info("Debug info:")
+    cli::cli_alert_info("- Looking for file: {file_name}")
+    cli::cli_alert_info("- Package root: {system.file(package = 'dissertationData')}")
+    cli::cli_alert_info("- Expected path: {file.path(system.file(package = 'dissertationData'), 'extdata', file_name)}")
+    cli::cli_abort("Dataset for year {year} not found in {format} format.")
   }
   
   # If the user does not want to load data and hasn't specified a destination, use the default folder name
@@ -49,14 +57,31 @@ get_raw_data <- function(year, format = "spss", dest_dir = NULL, load = TRUE, ..
   # If a destination directory is provided (or defaulted), copy the file there
   if (!is.null(dest_dir)) {
     dest_path <- file.path(dest_dir, file_name)
+    
     if (!dir.exists(dest_dir)) {
-      dir.create(dest_dir, recursive = TRUE)
+      # Inform the user that a new folder will be created
+      if (simulate_interactive) {
+        cli::cli_alert_warning("The folder '{dest_dir}' does not exist and will be created on your machine.")
+        answer <- readline(prompt = paste0("Would you like to proceed with creating '{dest_dir}'? (y/n): "))
+        if (tolower(answer) %in% c("y", "yes")) {
+          dir.create(dest_dir, recursive = TRUE)
+          cli::cli_alert_success("Directory '{dest_dir}' created.")
+        } else {
+          cli::cli_abort("Directory creation was declined. Aborting file copy.")
+        }
+      } else {
+        dir.create(dest_dir, recursive = TRUE)
+        cli::cli_alert_info("Directory '{dest_dir}' created (non-interactive mode).")
+      }
+    } else {
+      cli::cli_warn("Directory '{dest_dir}' already exists.")
     }
+    
     tryCatch({
       file.copy(file_path, dest_path, overwrite = TRUE)
-      message("File copied to ", dest_path)
+      cli::cli_alert_success("File copied to {dest_path}")
     }, error = function(e) {
-      stop("Failed to copy file to destination: ", e$message)
+      cli::cli_abort("Failed to copy file to destination: {e$message}")
     })
     # If load is FALSE, return the destination path invisibly.
     if (!load) {
@@ -73,7 +98,7 @@ get_raw_data <- function(year, format = "spss", dest_dir = NULL, load = TRUE, ..
                      rds = readRDS(file_path))
       return(data)
     }, error = function(e) {
-      stop("Failed to load data: ", e$message)
+      cli::cli_abort("Failed to load data: {e$message}")
     })
   } else {
     # If not loading and no download was requested, return the file path from the package.
