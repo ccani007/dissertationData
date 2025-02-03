@@ -1,6 +1,6 @@
 ---
 title: "Getting Started with dissertationData"
-author: "Your Name"
+author: "Francisco Cardozo"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
