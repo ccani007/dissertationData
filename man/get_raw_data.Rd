@@ -23,7 +23,9 @@ If not provided and load = FALSE, the file is copied to a default folder named "
 
 \item{load}{logical. Whether to load the data into R (TRUE) or just return the file path / copy it (FALSE)}
 
-\item{simulate_interactive}{logical. (Undocumented) For testing only. Overrides interactive() behavior.}
+
+\item{simulate_interactive}{logical. \strong{(Internal)} For testing purposes only; overrides \code{interactive()} behavior.}
+
 
 \item{...}{Additional arguments passed to the respective reading functions.}
 }
