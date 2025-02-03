@@ -24,13 +24,11 @@ The data is available in different formats (such as SPSS), and the package offer
 
 # Installation
 
-If you haven't installed the package yet, you can install it from CRAN (or GitHub if it's not on CRAN yet):
+If you haven't installed the package yet, you can install it from GitHub:
 
 ```{r eval=FALSE}
-# Install from CRAN:
-# install.packages("dissertationData")
-
-# Or install from GitHub:
+# Install from GitHub:
+# install.packages("devtools")
 # devtools::install_github("yourusername/dissertationData")
 ```
 
@@ -42,12 +40,13 @@ library(dissertationData)
 
 # Loading the Data
 
-The main function you'll use is `get_raw_data()`. This function lets you choose the year and format of the data you want to work with. For example, to load the YRBS data for 2017 (which is available in the package), you simply run:
+The main function you'll use is `get_raw_data()`. This function lets you choose the year and format of the data you want to work with. For example, to load the YRBS data for 2017, you run:
 
 ```{r}
 # Load the YRBS 2017 data as a data frame:
 yrbs2017 <- get_raw_data(2017)
 head(yrbs2017)
+
 ```
 
 # Saving a Copy of the Raw Data File

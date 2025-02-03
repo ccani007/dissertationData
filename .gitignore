@@ -8,3 +8,4 @@ XXH2017_YRBS_Data.dat
 .dat.sav
 *.DS_Store
 *.Rbuildignore
+inst/doc
