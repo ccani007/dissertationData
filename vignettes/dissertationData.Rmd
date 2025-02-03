@@ -42,7 +42,7 @@ library(dissertationData)
 
 The main function you'll use is `get_raw_data()`. This function lets you choose the year and format of the data you want to work with. For example, to load the YRBS data for 2017, you run:
 
-```{r}
+```{r eval=FALSE}
 # Load the YRBS 2017 data as a data frame:
 yrbs2017 <- get_raw_data(2017)
 head(yrbs2017)
