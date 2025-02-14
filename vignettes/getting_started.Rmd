@@ -1,0 +1,80 @@
+---
+title: "Getting Started with dissertationData"
+author: "Catalina Canizares"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting Started with dissertationData}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+Welcome to **dissertationData**! This package provides easy access to data from the **Youth Risk Behavior Survey (YRBS)**, a valuable resource for studying adolescent health trends.  
+
+Whether you're an experienced analyst or just starting out, this guide will walk you through how to **load and work with the data in R** efficiently.
+
+# Installation
+
+If you haven't installed the package yet, you can install it from GitHub:
+
+```{r eval=FALSE}
+# Install from GitHub
+install.packages("devtools")
+devtools::install_github("yourusername/dissertationData")
+```
+
+Once installed, load the package:
+
+```{r setup}
+library(dissertationData)
+```
+
+# Working with the Data
+
+This package provides different versions of the YRBS data. The simplest option is the raw datasets, available year by year from 2015 to 2023. 
+
+You can access the data using two different functions: 
+1. The base R function `data()`
+2. A package-specific function `load_yrbs()`
+
+Let's explore both approaches and their differences.
+
+## Example: Examining Suicide Ideation in 2023 by Grade
+
+To demonstrate how to work with the data, let’s analyze the percentage of suicide ideation in 2023 by grade.
+
+### Option 1: Using the `data()` function
+
+```{r}
+data("raw2023")
+```
+
+This function loads the dataset into your environment as a **promise**, meaning that the object `raw2023` is only accessible once you interact with it through another function.
+
+### Option 2: Using `load_yrbs()`
+
+For more control over the object name and a direct approach to loading data, use the `load_yrbs()` function from this package:
+
+```{r}
+yrbs_df <- load_yrbs("raw2023")
+```
+
+This function immediately assigns the dataset to the `yrbs_df` object, making it easier to work with.
+
+Let's continue interacting with the data to demonstrate how to answer questions using this dataset in the R environment.
+
+I will proceed by selecting the variables I care most about, which are the grade and the suicide attempts items.
+
+Considering we lost the data dictionaries due to recent federal actions, you can access the ones I was able to recover here. However, the package also includes dictionaries for each of the datasets.
+
+Let's use one of the dictionaries.
+
