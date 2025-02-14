@@ -3,6 +3,7 @@
 export(binary_to_text)
 export(create_from_rowsums)
 export(list_package_datasets)
+export(load_dictionary)
 export(load_yrbs)
 export(plot_risk_behaviors)
 export(save_data_to_csv)
