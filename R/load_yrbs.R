@@ -7,6 +7,8 @@
 #'
 #' @return The requested dataset as a fully evaluated object.
 #'
+#' @importFrom utils data write.csv
+#'
 #' @examples
 #' \dontrun{
 #' my_data <- load_yrbs("raw2017")
