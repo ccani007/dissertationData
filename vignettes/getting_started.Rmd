@@ -5,8 +5,10 @@ date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Getting Started with dissertationData}
-  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r, include = FALSE}
@@ -77,4 +79,74 @@ I will proceed by selecting the variables I care most about, which are the grade
 Considering we lost the data dictionaries due to recent federal actions, you can access the ones I was able to recover here. However, the package also includes dictionaries for each of the datasets.
 
 Let's use one of the dictionaries.
+
+```{r}
+dict_2023 <- load_dictionary("2023")
+dict_2023
+
+```
+
+Now that we have the dictionary loaded, let's search for the variables of interest: **suicide attempts** and **grade**. We can do this by querying the dictionary using `dplyr`.
+
+```{r}
+library(dplyr)
+library(stringr)
+
+# Filter for variables related to suicide attempts and grade
+suicide_grade_vars <- dict_2023 %>%
+  filter(str_detect(description, regex("suicide|grade", ignore_case = TRUE)))
+
+# View the results
+print(suicide_grade_vars)
+```
+
+This query will return all variables in the 2023 dataset that mention **suicide** or **grade** in their descriptions. This helps ensure we select the correct variables for our analysis.
+
+Now that we have identified the variables of interest, **Q3** and **QN29** (all `QN` variables are dichotomized), let's create a summary table using these variables.
+
+
+```{r}
+library(gtsummary)
+# Create a summary table for suicide attempts by grade
+
+yrbs_df %>%
+  select(Q3, QN29) %>%
+  tbl_summary(
+    by = QN29, 
+    statistic = list(all_categorical() ~ "{p}%"),
+    label = list(Q3 ~ "Grade")
+  ) %>%
+  modify_header(label ~ "Suicide Attempts") %>%
+  modify_caption("**Table 1: Percentage of Suicide Attempts by Grade**")
+
+
+```
+
+Almost there! It would be great to clarify what "1" and "2" represent, as well as the grade levels corresponding to the options 1, 2, 3, 4, and 5.
+
+Thanks to the dictionary, we know that 1 means "yes" and 2 means "no". This package provides a handy function, `binary_to_text()`, to easily convert these values into readable labels. Additionally, the `haven` package offers the `as_factor()` function, which can be used to convert categorical variables into factors, as demonstrated in the code below:
+
+
+```{r}
+yrbs_df %>%
+  select(Q3, QN29) %>%
+  mutate(QN29 = binary_to_text(QN29), 
+         Q3 = haven::as_factor(Q3)) |> 
+   tbl_summary(
+    by = QN29, 
+    statistic = list(all_categorical() ~ "{p}%"),
+    label = list(Q3 ~ "Grade")
+  ) %>%
+  modify_header(label ~ "Suicide Attempts") %>%
+  modify_caption("**Table 1: Percentage of Suicide Attempts by Grade**")
+  
+```
+
+
+And just like that, we have a clear and well-formatted table showing that 9th graders have the highest proportion of students reporting suicidal thoughts.
+
+Note: These proportions are calculated from the raw data and do not account for survey weights. If weighted estimates are needed, appropriate adjustments should be made before interpreting the results. We will cover how to properly apply survey weights in another vignette.
+
+I hope this example is helpful in demonstrating how to use this package effectively within the R environment! 🚀
+
 

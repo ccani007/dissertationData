@@ -40,13 +40,14 @@ Imports:
     cli,
     haven,
     magrittr,
-    rlang, 
+    rlang,
     utils
 Suggests: 
     covr,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0),
-    withr
+    withr,
+    gtsummary
 Config/testthat/edition: 3
 VignetteBuilder: knitr
