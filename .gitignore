@@ -9,3 +9,5 @@ XXH2017_YRBS_Data.dat
 *.DS_Store
 *.Rbuildignore
 inst/doc
+/doc/
+/Meta/

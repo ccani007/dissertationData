@@ -9,3 +9,4 @@
 ^pkgdown$
 ^_pkgdown\.yml$
 ^CODE_OF_CONDUCT\.md$
+^Meta$
