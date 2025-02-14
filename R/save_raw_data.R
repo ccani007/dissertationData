@@ -13,6 +13,7 @@
 #'
 #' @importFrom haven write_sav
 #' @importFrom arrow write_parquet
+#' @importFrom utils data write.csv
 #' @import cli
 #' @export
 save_raw_data <- function(year, format = "csv", dest_dir = "downloaded_raw_data", load = TRUE, ...) {

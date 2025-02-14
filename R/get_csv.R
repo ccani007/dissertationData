@@ -9,7 +9,7 @@
 #'
 #' @return Returns the file path of the saved CSV invisibly. The dataset is saved
 #'   in the "data" directory within the current working directory.
-#'
+#' @importFrom utils data write.csv
 #' @examples
 #' \dontrun{
 #' save_data_to_csv("yrbs_2017")
