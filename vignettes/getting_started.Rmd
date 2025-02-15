@@ -45,7 +45,9 @@ library(dissertationData)
 This package provides different versions of the YRBS data. The simplest option is the raw datasets, available year by year from 2015 to 2023. 
 
 You can access the data using two different functions: 
+
 1. The base R function `data()`
+
 2. A package-specific function `load_yrbs()`
 
 Let's explore both approaches and their differences.
